@@ -1,0 +1,36 @@
+.content {
+    height: 80vh;
+}
+header {
+    margin: 3vh;
+}
+#home-icon{
+    left: 20px;
+    bottom: 40px;
+}
+#hamburger-icon{
+top: 40px;
+}
+
+.content-card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.content-card h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.content-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}

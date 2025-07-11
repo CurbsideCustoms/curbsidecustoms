@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailing</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/detailing-page.css">
+    <link rel="icon" type="image/png" href="../images/cc-svgrepo-com.svg">
+</head>
+<body class="detailing-page">
+    <header>
+        <h1>Full Car Detailing – Restore, Protect, & Shine</h1>
+        <div id="home-icon">
+            <a href="../html/index.html"><img src="../images/home.png" alt="Home Icon"></a>
+        </div>
+        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+    </header>
+
+    <!-- Hamburger Menu -->
+    <div id="hamburger-menu">
+        <button id="close-btn">X</button>
+        <a href="../html/index.html">Home</a>
+        <a href="../html/about.html">About</a>
+        <a href="../html/contact.html">Contact us</a>
+    </div>
+
+    <!-- Wash Services Section -->
+    <div class="wash-services">
+        <div class="card">
+            <div class="card-back-arrow" onclick="goBackFromCard()">&#8592;</div>
+            <img src="../images/detailing.png" alt="Exterior Wash Icon" class="card-icon">
+            <div class="card-content">
+                <h2>What's Included?</h2>
+                <p>
+                    Our Full Car Detailing service deep cleans and restores your vehicle inside and out, leaving it looking and feeling brand new.
+                    <br><br>
+                    ✅ Exterior: Hand wash, decontamination, machine polish, and wax/sealant for a flawless shine and protection.<br>
+                    ✅ Interior: Deep vacuuming, stain removal, steam cleaning, and UV protection for a fresh, spotless cabin.<br>
+                    ✅ Wheels & Tires: Thorough cleaning and dressing for a sleek and shiny finish.<br><br>
+                    Why Get a Full Detail?<br>
+                    🚗 Enhance your car’s appearance & resale value<br>
+                    ⛨ Protect paint and interior from wear & damage<br>
+                    🦠 Remove bacteria, odors, and allergens<br>
+                    ✨ Enjoy and show off a fresh, clean ride every day<br><br>
+                    We can come to you! Book your detail today and experience the difference. 🚗✨
+                </p>
+                <a href="../html/contact.html" class="book-now-btn">Book Now!</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
+                <p>Location: Burnaby, BC</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="https://www.instagram.com/curbsidecustomsgarage/?hl=en" class="social-icon" target="_blank">
+                    <img src="../images/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        const menuToggle = document.getElementById('hamburger-icon');
+        const closeBtn = document.getElementById('close-btn');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+
+        function goBackFromCard() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

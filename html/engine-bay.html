@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engine Wash</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/engine-bay.css">
+</head>
+<body class="detailing-page">
+    <header>
+        <h1>Engine Wash</h1>
+        <div id="home-icon">
+            <a href="../html/index.html"><img src="../images/home.png" alt="Home Icon"></a>
+        </div>
+        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+    </header>
+
+    <div id="hamburger-menu">
+        <button id="close-btn">X</button>
+        <a href="../html/index.html">Home</a>
+        <a href="../html/wash.html">Detail/Wash</a>
+        <a href="../html/about.html">About</a>
+        <a href="../html/contact.html">Contact us</a>
+    </div>
+
+    <!-- Wash Services Section -->
+    <div class="wash-services">
+        <div class="card">
+            <div class="card-back-arrow" onclick="goBackFromCard()">
+                &#8592;
+            </div>
+            <img src="../images/engine-wash.png" alt="Exterior Wash Icon" class="card-icon">
+            <div class="card-content">
+                <h2>Engine Bay Wash – Clean & Protect</h2>
+                <p>
+                    Give your engine bay the care it deserves with our professional cleaning service. Keep your engine looking fresh, running cooler, and protected from dirt and grime. <br>
+                    <br>
+                    <br>
+                    ✅ Degreasing & Cleaning: Safely removes oil, dirt, and grime buildup <br>
+                    ✅ Precision Detailing: Careful cleaning around delicate components <br> 
+                    ✅ Plastic & Rubber Dressing: Restores a clean, like-new appearance <br>
+                    ✅ Protection: Helps prevent future buildup and corrosion <br>
+                     <br>
+                     <br>
+                    Why Get an Engine Bay Wash?<br>
+                    🚗 Enhance Appearance – Keep your engine bay looking <br>
+                    🛠 Prevent Wear & Tear – Reduce grime buildup that can cause issues <br>
+                    🔥 Better Cooling – A cleaner engine dissipates heat more efficiently <br>
+                    🧼 Improve Resale Value – A well-maintained engine bay makes a great impression <br>
+                    <br>
+                    Dirty engine bays attract rodents which can chew up your wires and hoses which will make you wish you got that engine wash.
+                    <br>
+                    <br>
+                    On-site service available! Book your wash today and keep your car shining. 🚗✨</p>
+                <a href="../html/contact.html" class="book-now-btn">Book Now!</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
+                <p>Location: Vancouver, BC</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#" class="social-icon"><img src="../images/facebook.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="../images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('hamburger-icon');
+        const closeBtn = document.getElementById('close-btn');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+        function goBackFromCard() {
+    window.history.back();
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* detailing-page.css */
+
+/* Wash Services Section */
+.wash-services {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 20px;
+    height: 100vh;
+}
+
+.card {
+    width: 80vh;
+    height: 80%;
+    background-color: #333;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    color: #e0e0e0;
+}
+
+.card-icon {
+    width: 40%;
+    max-width: 300px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.card-content h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.card-content p {
+    font-size: 1.2em;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.book-now-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    max-width: 150px;
+    text-align: center;
+}
+
+.book-now-btn:hover {
+    background-color: rgb(0, 99, 0);
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+    transform: none !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+    cursor: default !important;
+    animation: none !important;
+    background-color: #333 !important;
+    color: inherit !important;
+}
+
+.card-back-arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.card-back-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+} 
+
+/* Home Icon on Detailing Page */
+body.detailing-page #home-icon {
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    transform: translateY(0);
+} 
+#hamburger-icon {
+    top: 40px;
+}
+
+header {
+    margin: 3vh;
+}

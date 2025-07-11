@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parts / Mod Install</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/install.css">
+</head>
+<body>
+    <header>
+        <h1>Parts / Mod Install</h1>
+        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+    </header>
+
+    <div id="home-icon">
+        <a href="../html/index.html">
+            <img src="../images/home.png" alt="Home Icon">
+        </a>
+    </div>
+
+    <div id="hamburger-menu">
+        <button id="close-btn">X</button>
+        <a href="../html/index.html">Home</a>
+        <a href="../html/services.html">Services</a>
+        <a href="../html/wash.html">Detail/Wash</a>
+        <a href="../html/install.html">Parts/Install</a>
+        <a href="../html/about.html">About</a>
+        <a href="../html/contact.html">Contact us</a>
+    </div>
+    
+    <!-- Background image section -->
+    <div class="header-image">
+        <div class="back-arrow" onclick="goBack()">
+            &#8592;
+        </div>
+        <h2>Upgrade Your Ride</h2>
+    </div>
+
+    <!-- Parts / Mod Install Section -->
+    <div class="parts-options">
+        <div class="card" onclick="window.location.href='brake-inst.html'">
+            <img src="../images/brake-service.png" alt="Brakes Icon" class="card-icon">
+            <h2>Brakes</h2>
+            <p>Upgrade or replace your brakes for improved performance and safety.</p>
+        </div>
+        <div class="card" onclick="window.location.href='exhaust.html'">
+            <img src="../images/exhaust.png" alt="Exhaust Icon" class="card-icon">
+            <h2>Exhaust</h2>
+            <p>Enhance engine performance and sound with custom exhaust installations.</p>
+        </div>
+        <div class="card" onclick="window.location.href='intake.html'">
+            <img src="../images/air.png" alt="Air Intake / Filter Icon" class="card-icon">
+            <h2>Air Intake / Filter</h2>
+            <p>Boost your engine's air intake system for more power and efficiency.</p>
+        </div>
+        <div class="card" onclick="window.location.href='accessories.html'">
+            <img src="../images/accessory.png" alt="Accessories Icon" class="card-icon">
+            <h2>Accessories</h2>
+            <p>Custom accessories to personalize and enhance your vehicle’s appearance and function.</p>
+        </div>
+        <div class="card full-width-card" id="other-component-card">
+            <h2>Other Component</h2>
+            <p>If you have a specific part or mod in mind, let us know and we'll take care of it!</p>
+        </div>
+    </div>
+
+    <!-- Popup Form for Custom Component Request -->
+    <div class="popup-form" id="popup-form">
+        <div class="form-container">
+            <h2>Request a Custom Component</h2>
+            <form id="component-form">
+
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <input type="email" id="email" name="email" placeholder="Your Email">
+
+                <textarea id="description" name="description" rows="4" placeholder="Describe what you would like us to install/ replace" required></textarea>
+
+                <div class="form-actions">
+                    <button type="submit" id="send-btn">Send</button>
+                    <button type="button" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+            <p class="thank-you-message" id="thank-you-message">Thank you for your request! We'll contact you ASAP.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
+                <p>Location: Vancouver, BC</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#" class="social-icon"><img src="../images/facebook.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="../images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle the hamburger menu
+        const menuToggle = document.getElementById('hamburger-icon');
+        const closeBtn = document.getElementById('close-btn');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+
+        // Show the popup form when the "Other Component" card is clicked
+        const otherComponentCard = document.getElementById('other-component-card');
+        const popupForm = document.getElementById('popup-form');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        const componentForm = document.getElementById('component-form');
+
+        otherComponentCard.addEventListener('click', () => {
+            popupForm.style.display = 'flex';
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            popupForm.style.display = 'none';
+        });
+
+        // Handle form submission
+        componentForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent page reload
+
+            // Show thank you message and hide the form after 3 seconds
+            componentForm.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+
+            setTimeout(() => {
+                popupForm.style.display = 'none'; // Hide popup after 3 seconds
+                componentForm.style.display = 'flex'; // Reset form visibility
+                thankYouMessage.style.display = 'none'; // Hide thank you message
+            }, 3000);
+        });
+
+        function goBack() {
+    window.history.back();
+}
+    </script>
+</body>
+</html>

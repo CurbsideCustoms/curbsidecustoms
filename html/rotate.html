@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tire Rotation</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/rotate.css">
+</head>
+<body class="detailing-page">
+    <header>
+        <h1>Tire Rotation</h1>
+        <div id="home-icon">
+            <a href="../html/index.html"><img src="../images/home.png" alt="Home Icon"></a>
+        </div>
+        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+    </header>
+
+    <div id="hamburger-menu">
+        <button id="close-btn">X</button>
+        <a href="../html/index.html">Home</a>
+        <a href="../html/services.html">Services</a>
+        <a href="../html/wash.html">Detail/Wash</a>
+        <a href="../html/install.html">Parts/Install</a>
+        <a href="../html/about.html">About</a>
+        <a href="../html/contact.html">Contact us</a>
+    </div>
+
+    <!-- Wash Services Section -->
+    <div class="wash-services">
+        <div class="card">
+            <div class="card-back-arrow" onclick="goBackFromCard()">
+                &#8592;
+            </div>
+            <img src="../images/rotation.png" alt="Exterior Wash Icon" class="card-icon">
+            <div class="card-content">
+                <h2>Tire Rotation – Extend Tire Life & Improve Performances</h2>
+                <p>
+                    Your tires wear unevenly over time, affecting your car’s handling, fuel efficiency, and safety. Regular tire rotations ensure even wear, extending the life of your tires and keeping your ride smooth and safe. <br>
+<br>
+                    Our professional tire rotation service helps you get the most out of your tires while improving traction and stability on the road. <br>
+                    <br>
+                    ✅ Even Tire Wear – Rotating tires prevents uneven tread wear, maximizing their lifespan. <br>
+                    ✅ Improved Handling & Safety – Balanced traction means better control in all road conditions. <br>
+                    ✅ Better Fuel Efficiency – Properly rotated tires reduce rolling resistance, saving you money on gas. <br>
+                    ✅ Protect Your Investment – Tires are expensive—rotation helps you avoid premature replacements. <br>
+                    <br>
+                    Why Choose Our Tire Rotation Service?
+                    🔧 Quick & Hassle-Free – We come to you and rotate your tires in minutes. <br>
+                    🚙 Prevents Vibration & Uneven Driving – Smooths out your ride for better comfort. <br>
+                    🛑 Pairs Perfectly with Brake Service – Keep your tires and brakes in top shape for maximum safety. <br>
+                    💰 Saves You Money – Rotating your tires regularly prevents costly replacements. <br>
+                    <br>
+                    Don’t wait until your tires wear out unevenly—book your tire rotation today and drive with confidence! 🚗🔄<br> <br>
+
+</p>
+                <a href="../html/contact.html" class="book-now-btn">Book Now!</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
+                <p>Location: Vancouver, BC</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#" class="social-icon"><img src="../images/facebook.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="../images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('hamburger-icon');
+        const closeBtn = document.getElementById('close-btn');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+        function goBackFromCard() {
+    window.history.back();
+}
+    </script>
+</body>
+</html>

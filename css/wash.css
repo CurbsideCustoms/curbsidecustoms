@@ -1,0 +1,73 @@
+/* General card styles */
+.wash-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    width: 23%;
+    background-color: #333; /* Corrected background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    max-width: 40%; /* Further reduced the width of the image */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: white; /* Ensure the text stands out against dark background */
+}
+
+.card p {
+    font-size: 1em;
+    color: #bbb; /* Lighter text color for better readability */
+}
+
+/* Full Package card (centered below the other cards) */
+.card:last-child {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Header Image */
+.header-image {
+    background: url('../images/detail-bg.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center;
+    height: 370px; /* Adjust height to fit content */
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header-image h2 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+body.detailing-page #home-icon {
+    position: absolute;
+    top: 20px; /* Adjust this value to bring it back up */
+    left: 35px;
+    transform: translateY(0); /* Remove any vertical translation */
+}
+

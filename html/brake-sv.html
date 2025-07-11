@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brake Service</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/brake-sv.css">
+</head>
+<body class="detailing-page">
+    <header>
+        <h1>Brake Service</h1>
+        <div id="home-icon">
+            <a href="../html/index.html"><img src="../images/home.png" alt="Home Icon"></a>
+        </div>
+        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+    </header>
+
+    <div id="hamburger-menu">
+        <button id="close-btn">X</button>
+        <a href="../html/index.html">Home</a>
+        <a href="../html/services.html">Services</a>
+        <a href="../html/wash.html">Detail/Wash</a>
+        <a href="../html/install.html">Parts/Install</a>
+        <a href="../html/about.html">About</a>
+        <a href="../html/contact.html">Contact us</a>
+    </div>
+
+    <!-- Wash Services Section -->
+    <div class="wash-services">
+        <div class="card">
+            <div class="card-back-arrow" onclick="goBackFromCard()">
+                &#8592;
+            </div>
+            <img src="../images/brake.png" alt="Exterior Wash Icon" class="card-icon">
+            <div class="card-content">
+                <h2>Brake Service – Stop with Confidence</h2>
+                <p>
+                    Your brakes are the most critical safety feature of your vehicle—don’t wait until it’s too late! Our professional brake service ensures your car stops smoothly, quietly, and safely every time. Whether you're dealing with squeaky brakes, reduced stopping power, or just need routine maintenance, we've got you covered. <br>
+<br>
+<br>
+✅ Brake Inspection – We thoroughly check pads, rotors, calipers, and brake fluid to diagnose any issues. <br>
+✅ Brake Pad & Rotor Replacement – High-quality parts installed to restore optimal stopping power. <br>
+✅ Brake Fluid Flush – Removes old, contaminated fluid for a firm, responsive brake pedal. <br>
+✅ Caliper & Hardware Service – Proper lubrication and adjustments for even wear and long-lasting performance. <br>
+<br>
+<br>
+Why Choose Our Brake Service? <br>
+🛑 Safety First – Keep yourself and your passengers protected with properly maintained brakes. <br>
+🚙 Smoother Stops – No more grinding, squeaking, or shaky braking—just a smooth and quiet ride. <br>
+💰 Prevent Costly Repairs – Catch issues early and avoid expensive repairs down the road. <br>
+⏳ Quick & Convenient – We come to you, so you don’t have to waste time at a shop. <br>
+ <br>
+ <br>
+Don’t take chances with worn-out brakes. Book your brake service today and drive with confidence! 🚗 <br>
+                </p>
+                <a href="../html/contact.html" class="book-now-btn">Book Now!</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
+                <p>Location: Vancouver, BC</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#" class="social-icon"><img src="../images/facebook.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="../images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('hamburger-icon');
+        const closeBtn = document.getElementById('close-btn');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+        function goBackFromCard() {
+    window.history.back();
+}
+    </script>
+</body>
+</html>

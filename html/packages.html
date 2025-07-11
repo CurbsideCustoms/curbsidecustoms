@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Deals</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/packages.css">
+</head>
+<body class="package-page">
+
+    <header>
+        <h1>Package Deals</h1>
+        <div id="home-icon">
+            <a href="../html/index.html"><img src="../images/home.png" alt="Home Icon"></a>
+        </div>
+        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+    </header>
+
+    <div id="hamburger-menu">
+        <button id="close-btn">X</button>
+        <a href="../html/index.html">Home</a>
+        <a href="../html/wash.html">Detail/Wash</a>
+        <a href="../html/about.html">About</a>
+        <a href="../html/contact.html">Contact us</a>
+    </div>
+
+    <!-- Background image section -->
+    <div class="header-image">
+        <div class="back-arrow" onclick="goBack()">
+            &#8592;
+        </div>
+        <h2>Choose the Perfect Package for Your Car</h2>
+    </div>
+
+    <!-- Package Deals Section -->
+    <div class="package-deals">
+        <div class="card" onclick="window.location.href='washvac.html'">
+            <img src="../images/wash.png" alt="Wash Icon" class="card-icon">
+            <img src="../images/vacuum.png" alt="Vacuum Icon" class="card-icon">
+            <h2>Wash & Vac</h2>
+            <p>Get your car sparkling with a thorough exterior wash and vacuuming service.</p>
+        </div>
+
+        <div class="card" onclick="window.location.href='full.html'">
+            <img src="../images/wash.png" alt="Wash Icon" class="card-icon">
+            <img src="../images/detailing.png" alt="Detailing Icon" class="card-icon">
+            <img src="../images/engine-wash.png" alt="Engine Bay Cleaning Icon" class="card-icon">
+            <img src="../images/vacuum.png" alt="Vacuum Icon" class="card-icon">
+            <h2>Full Package</h2>
+            <p>Get everything! A complete package with wash, detailing, engine cleaning, and vacuuming.</p>
+        </div>
+
+        <div class="card" onclick="window.location.href='washbay.html'">
+            <img src="../images/engine-wash.png" alt="Engine Bay Cleaning Icon" class="card-icon">
+            <img src="../images/wash.png" alt="Wash Icon" class="card-icon">
+            <h2>Wash Exterior & Engine Bay</h2>
+            <p>Get your car sparkling clean with a prestine engine. Reducing chances of rodents crawling in your engine bay.</p>
+        </div>
+    </div>
+
+    <!-- Custom Package Request Card -->
+    <div class="custom-package" id="custom-package-card">
+        <div class="card">
+            <h2>Custom Package Request</h2>
+            <p>Need something different? Let us know your specific needs, and we’ll create a package just for you!</p>
+        </div>
+    </div>
+
+    <!-- The Popup Form -->
+    <div id="custom-package-form" class="popup-form">
+        <div class="form-container">
+            <button id="close-form-btn" class="close-btn">X</button>
+            <h2>Custom Package Request Form</h2>
+            <form id="package-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <textarea id="description" name="description" rows="4" placeholder="Describe your custom package here." required></textarea>
+
+                <div class="form-actions">
+                    <button type="submit" id="send-btn">Send</button>
+                    <button type="button" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
+                <p>Location: Vancouver, BC</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#" class="social-icon"><img src="../images/facebook.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="../images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Thank You Message -->
+    <div id="thank-you-message" class="thank-you-message">
+        <p>Thank you, we will get back to you as soon as possible!</p>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Hamburger Menu Functionality
+        const menuToggle = document.getElementById('hamburger-icon');
+        const closeBtn = document.getElementById('close-btn');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+
+        // Custom Package Form Functionality
+        const customPackageCard = document.getElementById('custom-package-card');
+        const customForm = document.getElementById('custom-package-form');
+        const closeFormBtn = document.getElementById('close-form-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const sendBtn = document.getElementById('send-btn');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        const packageForm = document.getElementById('package-form');
+
+        // Open form when clicking on the custom package card
+        customPackageCard.addEventListener('click', () => {
+            customForm.style.display = 'flex';
+        });
+
+        // Close form when clicking on the close button
+        closeFormBtn.addEventListener('click', () => {
+            customForm.style.display = 'none';
+        });
+
+        // Close form when clicking the cancel button
+        cancelBtn.addEventListener('click', () => {
+            customForm.style.display = 'none';
+        });
+
+        // Handle form submission
+        packageForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent form from submitting the traditional way
+
+            // Hide the form and show the "Thank You" message
+            customForm.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+
+            // Optionally, you can send the form data to a server here via AJAX
+
+            // Hide the "Thank You" message after 5 seconds
+            setTimeout(() => {
+                thankYouMessage.style.display = 'none';
+            }, 5000);
+        });
+        function goBack() {
+    window.history.back();
+}
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

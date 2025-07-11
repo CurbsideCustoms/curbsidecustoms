@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Package</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/full.css">
+</head>
+<body class="detailing-page">
+    <header>
+        <h1>Full Package</h1>
+        <div id="home-icon">
+            
+            <a href="../html/index.html"><img src="../images/home.png" alt="Home Icon"></a>
+        </div>
+        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+    </header>
+
+    <div id="hamburger-menu">
+        <button id="close-btn">X</button>
+        <a href="../html/index.html">Home</a>
+        <a href="../html/wash.html">Detail/Wash</a>
+        <a href="../html/about.html">About</a>
+        <a href="../html/contact.html">Contact us</a>
+    </div>
+
+    <!-- Wash Services Section -->
+    <div class="wash-services">
+
+        <div class="card">
+            <div class="card-back-arrow" onclick="goBackFromCard()">
+                &#8592;
+            </div>
+
+            <div class="card-icons-container">
+                <img src="../images/wash.png" alt="Wash Icon" class="card-icon">
+                <img src="../images/vacuum.png" alt="Vacuum Icon" class="card-icon">
+            </div>
+        
+            <div class="card-icon-container">
+                <img src="../images/engine-wash.png" alt="Wash Icon" class="card-icon">
+                <img src="../images/detailing.png" alt="Vacuum Icon" class="card-icon">
+            </div>
+
+            <div class="card-content">
+                <h2>Full Package Deal – The Ultimate Car Refresh</h2>
+                <p>
+                    Get your car looking and feeling brand new inside and out with our Full Package Deal! This all-in-one service includes a professional exterior wash, deep interior cleaning, engine bay degreasing, and full detailing, giving your car the attention it deserves. <br>
+<br>
+✅ Exterior Wash & Wax – Scratch-free hand wash, wax/sealant protection, and wheel & tire shine. <br>
+✅ Interior Vacuum & Detailing – Deep vacuuming, stain removal, steam cleaning, and UV protection for a spotless cabin. <br>
+✅ Engine Bay Wash – Careful degreasing and cleaning to remove grime and improve engine longevity. <br>
+✅ Full Car Detailing – Thorough cleaning and polishing inside and out, making your car look showroom-ready. <br>
+<br>
+
+Why Choose Our Full Package Deal? <br>
+🚗 Complete Makeover – Every part of your car cleaned, polished, and protected. <br>
+✨ Enhanced Comfort & Hygiene – Remove dust, odors, and allergens for a fresh interior. <br>
+🛡 Boost Resale Value – Maintain your car’s paint, interior, and engine condition. <br>
+⏳ Convenient & Hassle-Free – We come to you—no waiting at a shop! <br>
+<br>
+Book your Full Package Deal today and experience the ultimate car refresh! 🚗✨🛠 <br>
+                </p>
+                <a href="../html/contact.html" class="book-now-btn">Book Now!</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
+                <p>Location: Vancouver, BC</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#" class="social-icon"><img src="../images/facebook.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="../images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('hamburger-icon');
+        const closeBtn = document.getElementById('close-btn');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+
+        menuToggle.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            hamburgerMenu.classList.remove('open');
+        });
+
+        function goBackFromCard() {
+    window.history.back();
+}
+
+    </script>
+</body>
+</html>
