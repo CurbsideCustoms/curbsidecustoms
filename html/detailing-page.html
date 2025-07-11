@@ -10,25 +10,27 @@
 </head>
 <body class="detailing-page">
     <header>
-        <h1>Full Car Detailing – Restore, Protect, & Shine</h1>
+        <h1>Full Detail</h1>
         <div id="home-icon">
             <a href="../index.html"><img src="../images/home.png" alt="Home Icon"></a>
         </div>
         <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
     </header>
 
-    <!-- Hamburger Menu -->
-    <div id="hamburger-menu">
-        <button id="close-btn">X</button>
-        <a href="../index.html">Home</a>
-        <a href="../html/about.html">About</a>
-        <a href="../html/contact.html">Contact us</a>
-    </div>
+    <!-- Hamburger Menu Overlay -->
+<div id="hamburger-overlay">
+  <div id="hamburger-menu">
+    <a href="../index.html">Home</a>
+    <a href="../html/detailing-page.html">Detail</a>
+    <a href="../html/about.html">About</a>
+    <a href="../html/contact.html">Contact us</a>
+  </div>
+</div>
+
 
     <!-- Wash Services Section -->
     <div class="wash-services">
         <div class="card">
-            <div class="card-back-arrow" onclick="goBackFromCard()">&#8592;</div>
             <img src="../images/detailing.png" alt="Exterior Wash Icon" class="card-icon">
             <div class="card-content">
                 <h2>What's Included?</h2>
@@ -80,21 +82,21 @@
 
     <!-- Script -->
     <script>
-        const menuToggle = document.getElementById('hamburger-icon');
-        const closeBtn = document.getElementById('close-btn');
-        const hamburgerMenu = document.getElementById('hamburger-menu');
+  const menuToggle = document.getElementById('hamburger-icon');
+  const hamburgerOverlay = document.getElementById('hamburger-overlay');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
 
-        menuToggle.addEventListener('click', () => {
-            hamburgerMenu.classList.toggle('open');
-        });
+  menuToggle.addEventListener('click', () => {
+    hamburgerOverlay.classList.add('open');
+  });
 
-        closeBtn.addEventListener('click', () => {
-            hamburgerMenu.classList.remove('open');
-        });
+  // Close when clicking outside the menu
+  hamburgerOverlay.addEventListener('click', (e) => {
+    if (!hamburgerMenu.contains(e.target)) {
+      hamburgerOverlay.classList.remove('open');
+    }
+  });
+</script>
 
-        function goBackFromCard() {
-            window.history.back();
-        }
-    </script>
 </body>
 </html>

@@ -23,23 +23,37 @@
     </div>
     </div>
 
-    <div id="hamburger-menu">
-        <button id="close-btn">X</button>
-        <a href="index.html">Home</a>
-        <a href="/html/detailing-page.html">Detail</a>
-        <a href="/html/about.html">About</a>
-        <a href="/html/contact.html">Contact us</a>
-    </div>
+   <!-- Hamburger Menu Overlay -->
+<div id="hamburger-overlay">
+  <div id="hamburger-menu">
+    <a href="/index.html">Home</a>
+    <a href="/html/detailing-page.html">Detail</a>
+    <a href="/html/about.html">About</a>
+    <a href="/html/contact.html">Contact us</a>
+  </div>
+</div>
+
 
     <section class="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-grid">
-            <img src="/images/IMG_3322.jpeg" alt="Detail 1" />
-            <img src="/images/IMG_3323.jpeg" alt="Detail 2" />
-            <img src="/images/IMG_3324.jpeg" alt="Detail 3" />
-            <img src="/images/IMG_3325.jpeg" alt="Detail 4" />
-        </div>
-    </section>
+    <h2>Gallery</h2>
+
+    <!-- Desktop Grid Layout -->
+    <div class="gallery-grid">
+        <img src="/images/IMG_3322.jpeg" alt="Detail 1" />
+        <img src="/images/IMG_3323.jpeg" alt="Detail 2" />
+        <img src="/images/IMG_3324.jpeg" alt="Detail 3" />
+        <img src="/images/IMG_3325.jpeg" alt="Detail 4" />
+    </div>
+
+    <!-- Mobile Slider Layout -->
+    <div class="gallery-slider">
+        <img src="/images/IMG_3322.jpeg" alt="Detail 1" />
+        <img src="/images/IMG_3323.jpeg" alt="Detail 2" />
+        <img src="/images/IMG_3324.jpeg" alt="Detail 3" />
+        <img src="/images/IMG_3325.jpeg" alt="Detail 4" />
+    </div>
+</section>
+
 
     <footer>
         <div class="footer-container">
@@ -67,17 +81,21 @@
     </footer>
 
     <script>
-        const menuToggle = document.getElementById('hamburger-icon');
-        const closeBtn = document.getElementById('close-btn');
-        const hamburgerMenu = document.getElementById('hamburger-menu');
+  const menuToggle = document.getElementById('hamburger-icon');
+  const hamburgerOverlay = document.getElementById('hamburger-overlay');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
 
-        menuToggle.addEventListener('click', () => {
-            hamburgerMenu.classList.add('open');
-        });
+  menuToggle.addEventListener('click', () => {
+    hamburgerOverlay.classList.add('open');
+  });
 
-        closeBtn.addEventListener('click', () => {
-            hamburgerMenu.classList.remove('open');
-        });
-    </script>
+  // Close when clicking outside the menu
+  hamburgerOverlay.addEventListener('click', (e) => {
+    if (!hamburgerMenu.contains(e.target)) {
+      hamburgerOverlay.classList.remove('open');
+    }
+  });
+</script>
+
 </body>
 </html>

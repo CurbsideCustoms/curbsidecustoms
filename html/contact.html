@@ -20,13 +20,15 @@
         </div>
         
 
-        <div id="hamburger-menu">
-            <button id="close-btn">X</button>
-            <a href="../index.html">Home</a>
-            <a href="../html/detailing-page.html">Detail</a>
-            <a href="../html/about.html">About</a>
-            <a href="../html/contact.html">Contact us</a>
-        </div>
+        <!-- Hamburger Menu Overlay -->
+<div id="hamburger-overlay">
+  <div id="hamburger-menu">
+    <a href="../index.html">Home</a>
+    <a href="../html/detailing-page.html">Detail</a>
+    <a href="../html/about.html">About</a>
+    <a href="../html/contact.html">Contact us</a>
+  </div>
+</div>
 
     </header>
 
@@ -64,9 +66,9 @@
     </div>
 
     <div class="additional">
-        <p>Or feel free to contact us directly:</p>
-        <p>Email: contact.curbside@gmail.com</p>
-        <p>Phone: (604) 562-5372</p>
+        <p class="cp">Or feel free to contact us directly: <br>
+        Email: contact.curbside@gmail.com <br>
+        Phone: (604) 562-5372</p>
     </div>
 
     <!-- Footer -->
@@ -81,11 +83,6 @@
                     <li><a href="../html/contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
-                <p>Location: Burnaby, BC</p>
-            </div>
             <div class="footer-social">
                 <h4>Follow Us</h4>
                 <a href="https://www.instagram.com/curbsidecustomsgarage/?hl=en" class="social-icon" target="_blank"><img src="../images/instagram.png" alt="Instagram"></a>
@@ -97,18 +94,22 @@
     </footer>
 
     <script>
-        const menuToggle = document.getElementById('hamburger-icon');
-        const closeBtn = document.getElementById('close-btn');
-        const hamburgerMenu = document.getElementById('hamburger-menu');
+  const menuToggle = document.getElementById('hamburger-icon');
+  const hamburgerOverlay = document.getElementById('hamburger-overlay');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
 
-        menuToggle.addEventListener('click', () => {
-            hamburgerMenu.classList.toggle('open');
-        });
+  menuToggle.addEventListener('click', () => {
+    hamburgerOverlay.classList.add('open');
+  });
 
-        closeBtn.addEventListener('click', () => {
-            hamburgerMenu.classList.remove('open');
-        });
-    </script>
+  // Close when clicking outside the menu
+  hamburgerOverlay.addEventListener('click', (e) => {
+    if (!hamburgerMenu.contains(e.target)) {
+      hamburgerOverlay.classList.remove('open');
+    }
+  });
+</script>
+
 
 </body>
 </html>

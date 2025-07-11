@@ -19,13 +19,16 @@
         </div>
     </header>
 
-    <div id="hamburger-menu">
-        <button id="close-btn">X</button>
-        <a href="../index.html">Home</a>
-        <a href="../html/detailing-page.html">Detail</a>
-        <a href="../html/about.html">About</a>
-        <a href="../html/contact.html">Contact us</a>
-    </div>
+    <!-- Hamburger Menu Overlay -->
+<div id="hamburger-overlay">
+  <div id="hamburger-menu">
+    <a href="../index.html">Home</a>
+    <a href="../html/detailing-page.html">Detail</a>
+    <a href="../html/about.html">About</a>
+    <a href="../html/contact.html">Contact us</a>
+  </div>
+</div>
+
 
     <div class="content-card">
         <h2>Welcome to Our Car Detailing Service</h2>
@@ -59,18 +62,23 @@
         </div>
     </footer>
 
-    <script>
-        const menuToggle = document.getElementById('hamburger-icon');
-        const closeBtn = document.getElementById('close-btn');
-        const hamburgerMenu = document.getElementById('hamburger-menu');
+   <script>
+  const menuToggle = document.getElementById('hamburger-icon');
+  const hamburgerOverlay = document.getElementById('hamburger-overlay');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
 
-        menuToggle.addEventListener('click', () => {
-            hamburgerMenu.classList.toggle('open');
-        });
+  menuToggle.addEventListener('click', () => {
+    hamburgerOverlay.classList.add('open');
+  });
 
-        closeBtn.addEventListener('click', () => {
-            hamburgerMenu.classList.remove('open');
-        });
-    </script>
+  // Close when clicking outside the menu
+  hamburgerOverlay.addEventListener('click', (e) => {
+    if (!hamburgerMenu.contains(e.target)) {
+      hamburgerOverlay.classList.remove('open');
+    }
+  });
+</script>
+
+
 </body>
 </html>

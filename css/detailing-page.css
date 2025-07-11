@@ -162,29 +162,65 @@ header {
         right: 10px;
     }
 
-    #hamburger-menu {
-        width: 100%;
-    }
+
 }
 
+
 @media only screen and (max-width: 768px) {
-    #hamburger-menu {
-        display: none;
-        position: absolute;
-        top: 50px;
-        right: 10px;
-        background: #fff;
-        padding: 10px;
-        border: 1px solid #ccc;
-        z-index: 1000;
-    }
+  .wash-services {
+    padding: 0;
+    margin: 0;
+    height: auto;
+  }
 
-    #hamburger-menu.open {
-        display: block;
-    }
+  .card {
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    border-radius: 0;
+    padding: 20px;
+    box-shadow: none;
+    text-align: center;
+    gap: 20px;
+  }
 
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-    }
+  .card-icon {
+    width: 80%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .card-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-content p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .book-now-btn {
+    width: 100%;
+    max-width: none;
+    padding: 14px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  .card-back-arrow {
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  #home-icon {
+    top: 12px !important;
+    left: 15px !important;
+    transform: none !important;
+  }
+  .menu-toggle {
+    top: 32px !important;
+    
+  }
 }
