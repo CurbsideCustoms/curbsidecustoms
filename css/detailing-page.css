@@ -122,3 +122,69 @@ body.detailing-page #home-icon {
 header {
     margin: 3vh;
 }
+/* Responsive adjustments for iPhones and iPads */
+@media only screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    header h1, h2, h3 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    nav, footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container, .content, .form-container {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    input, textarea, button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .menu-toggle {
+        font-size: 24px;
+        top: 10px;
+        right: 10px;
+    }
+
+    #hamburger-menu {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #hamburger-menu {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        z-index: 1000;
+    }
+
+    #hamburger-menu.open {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+}
