@@ -103,8 +103,9 @@ top: 40px;
 
     .card.contact-form{
         border-radius: 0px;
-        padding-top: 35px;
-        padding-bottom: 35px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-top: 40px;
     }
 
   h1{
