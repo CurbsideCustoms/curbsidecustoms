@@ -11,6 +11,11 @@ html, body {
   width: 100% !important;
 }
 
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
     font-family: Arial, sans-serif;
