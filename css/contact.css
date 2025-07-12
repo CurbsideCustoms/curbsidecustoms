@@ -103,7 +103,8 @@ top: 40px;
 
     .card.contact-form{
         border-radius: 0px;
-        
+        padding-top: 35px;
+        padding-bottom: 35px;
     }
 
   h1{
@@ -117,5 +118,5 @@ top: 40px;
   .menu-toggle {
     top: 36px !important;
     
-  }
+
 }

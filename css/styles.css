@@ -58,20 +58,22 @@ h1 {
 
 /* Hamburger Menu Panel */
 #hamburger-menu {
-    position: fixed;
-    top: 0;
-    right: -250px; /* Initially off-screen */
-    width: 250px;
-    height: 100%;
-    background-color: #1f1f1f;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
-    transition: right 0.3s ease-in-out;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: -250px; /* Start hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #1f1f1f;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  transition: right 0.4s ease-in-out;
 }
+
+
 
 #hamburger-menu a {
     color: #e0e0e0;
@@ -112,30 +114,38 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent background */
-  display: none;
-  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1000;
+  opacity: 0;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
 }
 
 #hamburger-overlay.open {
-  display: block;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  pointer-events: auto;
 }
 
+
 #hamburger-menu {
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
+  right: -250px; /* Start hidden off-screen */
   width: 250px;
   height: 100%;
   background-color: #1f1f1f;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
-  z-index: 1000;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  transition: right 0.4s ease-in-out;
 }
+
 
 
 /* Services Section */
@@ -464,6 +474,70 @@ footer {
     border-radius: 8px;
     object-fit: cover;
 }
+.car-gallery {
+  margin-bottom: 40px;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-image img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.thumbnail-images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.thumbnail-images img:hover {
+  opacity: 1;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10000;
+}
+
 
 .header-image {
     position: relative;
@@ -677,32 +751,59 @@ body {
 }
 
 /* Responsive adjustments for iPhones and iPads */
-@@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
+    /* Adjust burger icon */
     .menu-toggle {
-        font-size: 24px;
-        top: 10px;
+        font-size: 28px;
+        top: 25px;
         right: 10px;
-        display: block;
-        cursor: pointer;
+        position: absolute;
+        z-index: 1002;
     }
+
+    /* Fix overlay and menu positioning */
+    #hamburger-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1000;
+  opacity: 0;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#hamburger-overlay.open {
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
     #hamburger-menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        background: #1f1f1f;
-        color: white;
-        padding: 20px;
-        width: 80%;
-        z-index: 1000;
-        border-radius: 10px;
-    }
+  position: fixed;
+  top: 0;
+  right: -250px; /* Start hidden off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #1f1f1f;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  transition: right 0.4s ease-in-out;
+}
 
-    #hamburger-menu.open {
-        display: block;
-    }
 
+#hamburger-menu.open {
+    right: 0; /* Slides in smoothly */
+}
+
+    /* Responsive elements */
     .container, .content, .form-container {
         width: 100%;
         padding: 10px;
@@ -724,9 +825,8 @@ body {
         align-items: center;
         text-align: center;
     }
-}
-/* === Mobile Optimization === */
-@media (max-width: 768px) {
+
+    /* Header section adjustments */
     .header-image {
         height: auto;
         padding: 60px 20px;
@@ -736,12 +836,19 @@ body {
     }
 
     .hero-logo {
-    max-width: 280px;
-    height: auto;
-    margin-bottom: -65px; /* pulls the text up into the logo */
-    position: static;
-    z-index: 1;
-}
+        max-width: 280px;
+        height: auto;
+        margin-bottom: -65px;
+        position: static;
+        z-index: 1;
+    }
+
+    .header-image .description {
+        font-size: 1rem;
+        padding: 0 10px;
+        margin: 0 0 20px 0;
+        z-index: 2;
+    }
 
     .cta-button {
         margin-bottom: 20px;
@@ -766,17 +873,20 @@ body {
         scroll-snap-align: start;
         border-radius: 10px;
     }
-    .header-image .description {
-    font-size: 1rem;
-    padding: 0 10px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
-    }
+
     #close-btn {
+        display: none;
+    }
+    /* Hide the hamburger icon when menu is open */
+#hamburger-overlay.open + .menu-toggle {
     display: none;
-  }
+}
+body.menu-open .menu-toggle {
+    display: none;
+}
+
 
 }
+
+
 

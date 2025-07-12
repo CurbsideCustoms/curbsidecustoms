@@ -38,28 +38,198 @@
 </div>
 
 
-    <section class="gallery">
-    <h2>Gallery</h2>
 
-    <!-- Desktop Grid Layout -->
-    <div class="gallery-grid">
-        <img src="/images/IMG_3322.jpeg" alt="Detail 1" />
-        <img src="/images/IMG_3323.jpeg" alt="Detail 2" />
-        <img src="/images/IMG_3324.jpeg" alt="Detail 3" />
-        <img src="/images/IMG_3325.jpeg" alt="Detail 4" />
+    
+
+    <!-- HTML Section Example -->
+<section class="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <div class="car-wrapper">
+      <h3>Golf GTI</h3>
+      <div class="car-gallery" data-gallery-id="car1">
+        <div class="main-image">
+          <img src="/images/IMG_3322.jpeg" alt="Detail Main">
+        </div>
+        <div class="thumbnail-images">
+          <img src="/images/IMG_3322.jpeg" alt="Detail Main Thumb">
+          <img src="/images/IMG_3323.jpeg" alt="Detail Thumb">
+          <img src="/images/IMG_3324.jpeg" alt="Detail Thumb">
+          <img src="/images/IMG_3325.jpeg" alt="Detail Thumb">
+        </div>
+      </div>
     </div>
 
-    <!-- Mobile Slider Layout -->
-    <div class="gallery-slider">
-        <img src="/images/IMG_3322.jpeg" alt="Detail 1" />
-        <img src="/images/IMG_3323.jpeg" alt="Detail 2" />
-        <img src="/images/IMG_3324.jpeg" alt="Detail 3" />
-        <img src="/images/IMG_3325.jpeg" alt="Detail 4" />
+    <div class="car-wrapper">
+      <h3>Civic SI</h3>
+      <div class="car-gallery" data-gallery-id="car2">
+        <div class="main-image">
+          <img src="/images/si1.jpeg" alt="Car 2 Main">
+        </div>
+        <div class="thumbnail-images">
+          <img src="/images/si1.jpeg" alt="Car 2 Main Thumb">
+          <img src="/images/si2.jpeg" alt="Car 2 Detail 1">
+          <img src="/images/si3.jpeg" alt="Car 2 Detail 2">
+          <img src="/images/si4.jpeg" alt="Car 2 Detail 3">
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
+<!-- CSS Snippet -->
+<style>
+.gallery {
+  padding: 60px 20px;
+  background: #181818;
+  color: #fff;
+  text-align: center;
+}
 
-    <footer>
+.gallery h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #00AEEF;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.gallery h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #00AEEF;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.car-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.car-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.car-gallery {
+  position: relative;
+  max-width: 280px;
+  width: 100%;
+}
+
+.main-image img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: default;
+  border: 3px solid #333;
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail-images img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+
+.thumbnail-images img:hover {
+  opacity: 1;
+}
+
+.thumbnail-images img.active-thumb {
+  border: 2px solid #00AEEF;
+  opacity: 1;
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+const galleries = {
+  car1: [
+    '/images/IMG_3322.jpeg',
+    '/images/IMG_3323.jpeg',
+    '/images/IMG_3324.jpeg',
+    '/images/IMG_3325.jpeg'
+  ],
+  car2: [
+    '/images/si1.jpeg',
+    '/images/si2.jpeg',
+    '/images/si3.jpeg',
+    '/images/si4.jpeg'
+  ]
+};
+
+const carGalleries = document.querySelectorAll('.car-gallery');
+carGalleries.forEach(gallery => {
+  const galleryId = gallery.dataset.galleryId;
+  const mainImg = gallery.querySelector('.main-image img');
+  const thumbs = gallery.querySelectorAll('.thumbnail-images img');
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      mainImg.src = galleries[galleryId][index];
+      thumbs.forEach(t => t.classList.remove('active-thumb'));
+      thumb.classList.add('active-thumb');
+    });
+
+    if (mainImg.src.includes(thumb.src)) {
+      thumb.classList.add('active-thumb');
+    }
+  });
+});
+</script>
+
+<script>
+  const menuToggle = document.getElementById('hamburger-icon');
+  const hamburgerOverlay = document.getElementById('hamburger-overlay');
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+
+  // Open the menu
+  menuToggle.addEventListener('click', () => {
+    hamburgerOverlay.classList.add('open');
+    hamburgerMenu.classList.add('open');
+    document.body.classList.add('menu-open');
+  });
+
+  // Close the menu if clicking outside of it
+  hamburgerOverlay.addEventListener('click', (e) => {
+    if (!hamburgerMenu.contains(e.target)) {
+      hamburgerOverlay.classList.remove('open');
+      hamburgerMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }
+  });
+</script>
+
+
+
+
+
+<footer>
         <div class="footer-container">
             <div class="footer-links">
                 <h4>Quick Links</h4>
@@ -83,23 +253,6 @@
             <p>&copy; 2025 Car Upgrade Service. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-  const menuToggle = document.getElementById('hamburger-icon');
-  const hamburgerOverlay = document.getElementById('hamburger-overlay');
-  const hamburgerMenu = document.getElementById('hamburger-menu');
-
-  menuToggle.addEventListener('click', () => {
-    hamburgerOverlay.classList.add('open');
-  });
-
-  // Close when clicking outside the menu
-  hamburgerOverlay.addEventListener('click', (e) => {
-    if (!hamburgerMenu.contains(e.target)) {
-      hamburgerOverlay.classList.remove('open');
-    }
-  });
-</script>
 
 </body>
 </html>

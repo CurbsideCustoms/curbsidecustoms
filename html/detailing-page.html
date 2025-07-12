@@ -83,23 +83,29 @@
         </div>
     </footer>
 
-    <!-- Script -->
     <script>
   const menuToggle = document.getElementById('hamburger-icon');
   const hamburgerOverlay = document.getElementById('hamburger-overlay');
   const hamburgerMenu = document.getElementById('hamburger-menu');
 
+  // Open the menu
   menuToggle.addEventListener('click', () => {
     hamburgerOverlay.classList.add('open');
+    hamburgerMenu.classList.add('open');
+    document.body.classList.add('menu-open');
   });
 
-  // Close when clicking outside the menu
+  // Close the menu if clicking outside of it
   hamburgerOverlay.addEventListener('click', (e) => {
     if (!hamburgerMenu.contains(e.target)) {
       hamburgerOverlay.classList.remove('open');
+      hamburgerMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
     }
   });
 </script>
+
+
 
 </body>
 </html>
