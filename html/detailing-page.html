@@ -86,7 +86,6 @@
             <option value="8am">8am</option>
             <option value="2pm">2pm</option>
             <option value="6pm">6pm</option>
-            <option value="custom">Custom (book in advance)</option>
           </select>
 
           <label for="book-message">Message (Optional):</label>
@@ -150,8 +149,10 @@ const API_URL = 'https://curbside-customs-backend.onrender.com';
 // 🔓 Open booking modal
 openBooking.addEventListener('click', (e) => {
   e.preventDefault();
+  updateTimeOptions(); // 👈 refresh available times
   bookingModal.classList.add('open');
 });
+
 
 // ❌ Close modal
 closeBooking.addEventListener('click', () => {
