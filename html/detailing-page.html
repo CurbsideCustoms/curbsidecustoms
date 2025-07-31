@@ -56,9 +56,45 @@
                     ✨ Enjoy and show off a fresh, clean ride every day<br><br>
                     We can come to you! Book your detail today and experience the difference. 🚗✨
                 </p>
-                <a href="../html/contact.html" class="book-now-btn">Book Now!</a>
+                <a href="#" id="open-booking" class="book-now-btn">Book Now!</a>
             </div>
         </div>
+    </div>
+
+      <!-- Booking Modal -->
+    <div id="booking-modal">
+      <div class="modal-content">
+        <button id="close-booking" class="close-button">&times;</button>
+        <h2>Book a Detail</h2>
+        <form id="booking-form" action="https://formsubmit.co/contact.curbside@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+
+          <label for="book-name">Name:<span class="red-letter">*</span></label>
+          <input type="text" id="book-name" name="name" required>
+
+          <label for="book-email">Email:<span class="red-letter">*</span></label>
+          <input type="email" id="book-email" name="email" required>
+
+          <label for="book-phone">Phone:</label>
+          <input type="tel" id="book-phone" name="phone">
+
+          <label for="book-date">Preferred Date:<span class="red-letter">*</span></label>
+          <input type="date" id="book-date" name="date" required>
+
+          <label for="book-time">Preferred Time:<span class="red-letter">*</span></label>
+          <select id="book-time" name="time" required>
+            <option value="8am">8am</option>
+            <option value="2pm">2pm</option>
+            <option value="6pm">6pm</option>
+            <option value="custom">Custom (book in advance)</option>
+          </select>
+
+          <label for="book-message">Message (Optional):</label>
+          <textarea id="book-message" name="message" rows="4"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
 
     <!-- Footer -->
@@ -90,26 +126,129 @@
     </footer>
 
     <script>
-  const menuToggle = document.getElementById('hamburger-icon');
-  const hamburgerOverlay = document.getElementById('hamburger-overlay');
-  const hamburgerMenu = document.getElementById('hamburger-menu');
+const menuToggle = document.getElementById('hamburger-icon');
+const hamburgerOverlay = document.getElementById('hamburger-overlay');
+const hamburgerMenu = document.getElementById('hamburger-menu');
 
-  // Open the menu
-  menuToggle.addEventListener('click', () => {
-    hamburgerOverlay.classList.add('open');
-    hamburgerMenu.classList.add('open');
-    document.body.classList.add('menu-open');
-  });
+const openBooking = document.getElementById('open-booking');
+const bookingModal = document.getElementById('booking-modal');
+const closeBooking = document.getElementById('close-booking');
+const bookingForm = document.getElementById('booking-form');
 
-  // Close the menu if clicking outside of it
-  hamburgerOverlay.addEventListener('click', (e) => {
-    if (!hamburgerMenu.contains(e.target)) {
-      hamburgerOverlay.classList.remove('open');
-      hamburgerMenu.classList.remove('open');
-      document.body.classList.remove('menu-open');
+// ✅ Form input fields
+const bookName = document.getElementById('book-name');
+const bookEmail = document.getElementById('book-email');
+const bookPhone = document.getElementById('book-phone');
+const bookDate = document.getElementById('book-date');
+const bookTime = document.getElementById('book-time');
+const bookMessage = document.getElementById('book-message');
+
+
+// 🌐 Your backend API URL
+const API_URL = 'https://curbside-customs-backend.onrender.com';
+
+// 🔓 Open booking modal
+openBooking.addEventListener('click', (e) => {
+  e.preventDefault();
+  bookingModal.classList.add('open');
+});
+
+// ❌ Close modal
+closeBooking.addEventListener('click', () => {
+  bookingModal.classList.remove('open');
+});
+bookingModal.addEventListener('click', (e) => {
+  if (e.target === bookingModal) {
+    bookingModal.classList.remove('open');
+  }
+});
+
+// 🍔 Hamburger menu toggle
+menuToggle.addEventListener('click', () => {
+  hamburgerOverlay.classList.add('open');
+  hamburgerMenu.classList.add('open');
+  document.body.classList.add('menu-open');
+});
+hamburgerOverlay.addEventListener('click', (e) => {
+  if (!hamburgerMenu.contains(e.target)) {
+    hamburgerOverlay.classList.remove('open');
+    hamburgerMenu.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  }
+});
+
+// 🗓️ Update available times from backend
+function updateTimeOptions() {
+  const date = bookDate.value;
+  if (!date) return;
+
+  fetch(`${API_URL}/api/available?date=${date}`)
+    .then(res => res.json())
+    .then(bookedTimes => {
+      for (const option of bookTime.options) {
+        if (!option.value) continue;
+        if (bookedTimes.includes(option.value)) {
+          option.disabled = true;
+          option.textContent = option.value === "custom"
+            ? "Custom (already booked)"
+            : `${option.value} (already booked)`;
+        } else {
+          option.disabled = false;
+          option.textContent = option.value === "custom"
+            ? "Custom (book in advance)"
+            : option.value;
+        }
+      }
+    })
+    .catch(err => {
+      console.error('Failed to fetch booked times:', err);
+    });
+}
+
+bookDate.addEventListener('change', updateTimeOptions);
+
+// 📤 Submit booking to backend
+bookingForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const bookingData = {
+    name: bookName.value,
+    email: bookEmail.value,
+    phone: bookPhone.value,
+    date: bookDate.value,
+    time: bookTime.value,
+    message: bookMessage.value
+  };
+
+  fetch(`${API_URL}/api/book`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(bookingData)
+})
+  .then(async res => {
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(err);
     }
+    return res.json();
+  })
+  .then(data => {
+    alert('✅ Booking confirmed! Check your email.');
+    bookingModal.classList.remove('open');
+    updateTimeOptions();
+  })
+  .catch(err => {
+    console.error('Booking error:', err);
+    alert('⚠️ Could not connect to booking system.');
   });
+});
+
+
+
+// Run once on page load
+document.addEventListener('DOMContentLoaded', updateTimeOptions);
 </script>
+
 
 
 
