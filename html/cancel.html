@@ -1,0 +1,53 @@
+<!-- /html/cancel.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Cancellation</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    body {
+      text-align: center;
+      padding: 50px;
+    }
+    .message {
+      background-color: #1f1f1f;
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+      color: #e0e0e0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="message" id="status-message">
+    Processing your cancellation...
+  </div>
+
+  <script>
+    const statusEl = document.getElementById('status-message');
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (!id) {
+      statusEl.textContent = "❌ Missing booking ID.";
+    } else {
+      fetch(`https://curbside-customs-backend.onrender.com/api/cancel?id=${id}`)
+        .then(res => {
+          if (!res.ok) throw new Error("Cancel failed");
+          return res.text();
+        })
+        .then(text => {
+          statusEl.innerHTML = `✅ ${text}`;
+        })
+        .catch(err => {
+          statusEl.textContent = "⚠️ Error canceling booking. Try again or contact support.";
+          console.error(err);
+        });
+    }
+  </script>
+</body>
+</html>
