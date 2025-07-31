@@ -1,53 +1,89 @@
-<!-- /html/cancel.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Booking Cancellation</title>
+  <title>Cancel Booking</title>
   <link rel="stylesheet" href="../css/styles.css" />
   <style>
     body {
-      text-align: center;
-      padding: 50px;
-    }
-    .message {
-      background-color: #1f1f1f;
-      padding: 40px;
-      border-radius: 15px;
-      max-width: 600px;
-      margin: auto;
+      background-color: #121212;
       color: #e0e0e0;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 1rem;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .cancel {
+      background-color: #d9534f;
+      color: white;
+    }
+    .home {
+      background-color: #5cb85c;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <div class="message" id="status-message">
-    Processing your cancellation...
+  <h1>Would you like to cancel your booking?</h1>
+
+  <div class="buttons">
+    <button class="cancel" id="confirm-cancel">Yes, Cancel my booking</button>
+    <button class="home" onclick="window.location.href='../../index.html'">No thanks, take me back</button>
   </div>
 
-  <script>
-    const statusEl = document.getElementById('status-message');
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+  <p id="status" style="margin-top: 30px;"></p>
 
-    if (!id) {
-      statusEl.textContent = "❌ Missing booking ID.";
-    } else {
-      fetch(`https://curbside-customs-backend.onrender.com/api/cancel?id=${id}`)
-        .then(res => {
-          if (!res.ok) throw new Error("Cancel failed");
-          return res.text();
-        })
-        .then(text => {
-          statusEl.innerHTML = `✅ ${text}`;
-        })
-        .catch(err => {
-          statusEl.textContent = "⚠️ Error canceling booking. Try again or contact support.";
-          console.error(err);
+  <script>
+    const cancelBtn = document.getElementById('confirm-cancel');
+    const statusMsg = document.getElementById('status');
+
+    // Extract ID from URL query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    cancelBtn.addEventListener('click', async () => {
+      if (!id) {
+        statusMsg.textContent = '⚠️ Booking ID not found.';
+        return;
+      }
+
+      cancelBtn.disabled = true;
+      statusMsg.textContent = 'Cancelling your booking...';
+
+      try {
+        const res = await fetch(`https://curbside-customs-backend.onrender.com/api/cancel`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id })
         });
-    }
+
+        const data = await res.json();
+
+        if (data.success) {
+          statusMsg.textContent = '✅ Your booking has been canceled.';
+        } else {
+          statusMsg.textContent = '❌ Booking not found or already canceled.';
+        }
+      } catch (err) {
+        console.error(err);
+        statusMsg.textContent = '⚠️ Something went wrong. Please try again later.';
+      }
+    });
   </script>
 </body>
 </html>
