@@ -766,6 +766,12 @@ body {
         z-index: 1002;
     }
 
+    button:active {
+  transform: scale(0.97);
+  transition: transform 0.05s ease;
+}
+
+
     /* Fix overlay and menu positioning */
     #hamburger-overlay {
   position: fixed;

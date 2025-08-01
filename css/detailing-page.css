@@ -295,6 +295,20 @@ header {
   cursor: pointer;
   font-size: 1rem;
 }
+#booking-modal form button[type="submit"] {
+  background-color: #ff6600;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+#booking-modal form button[type="submit"]:hover {
+  background-color: #883600;
+}
+#booking-modal form button[type="submit"]:active {
+  transform: scale(0.97);
+}
+
+
 
 #booking-modal .close-button {
   position: absolute;
