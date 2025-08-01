@@ -755,6 +755,70 @@ body {
     display: none;
 }
 
+.detail-header,
+.detail-includes,
+.pricing-section {
+  text-align: center;
+  margin: 40px 0;
+  padding: 0 20px;
+}
+
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.detail-list li {
+  margin-bottom: 10px;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.price-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 12px;
+  width: 260px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.price-card:hover {
+  transform: scale(1.05);
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff6600;
+}
+
+.note {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 10px;
+}
+
+
+
+
+
 /* Responsive adjustments for iPhones and iPads */
 @media (max-width: 768px) {
     /* Adjust burger icon */

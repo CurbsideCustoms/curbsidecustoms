@@ -18,83 +18,132 @@
     <link rel="icon" type="image/png" href="../images/black_logo.png">
 </head>
 <body class="detailing-page">
-    <header>
-        <h1>Full Detail</h1>
-        <div id="home-icon">
-            <a href="../index.html"><img src="../images/home.png" alt="Home Icon"></a>
-        </div>
-        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
-    </header>
+  <header>
+    <h1>Full Detail</h1>
+    <div id="home-icon">
+      <a href="../index.html"><img src="../images/home.png" alt="Home Icon" /></a>
+    </div>
+    <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+  </header>
 
-    <!-- Hamburger Menu Overlay -->
-<div id="hamburger-overlay">
-  <div id="hamburger-menu">
-    <a href="../index.html">Home</a>
-    <a href="../html/detailing-page.html">Detail</a>
-    <a href="../html/about.html">About</a>
-    <a href="../html/contact.html">Contact us</a>
+  <!-- Hamburger Menu Overlay -->
+  <div id="hamburger-overlay">
+    <div id="hamburger-menu">
+      <a href="../index.html">Home</a>
+      <a href="../html/detailing-page.html">Detail</a>
+      <a href="../html/about.html">About</a>
+      <a href="../html/contact.html">Contact us</a>
+    </div>
   </div>
+
+<!-- Full Detail Card -->
+<div class="wash-services">
+  <div class="card vertical">
+    <img src="../images/detailing.png" alt="Exterior Wash Icon" class="card-icon" />
+    <div class="card-content">
+      <h2>Full Interior & Exterior Detail</h2>
+      <p>
+        Our premium full-service package is designed to restore your car inside and out —
+        perfect for resale, deep seasonal cleaning, or just giving your ride the attention it deserves.
+      </p>
+
+      <div class="card-content-columns">
+  <!-- Left side: What's Included -->
+  <div class="card-includes">
+    <h3>What’s Included</h3>
+    <ul class="detail-list">
+      <li>✅ Hand Wash & Paint Decontamination</li>
+      <li>✅ Full Interior Vacuum & Steam Clean</li>
+      <li>✅ Stain Removal & Odor Elimination</li>
+      <li>✅ Leather & Plastic UV Protection</li>
+      <li>✅ Wheels, Tires, & Trim Cleaned & Dressed</li>
+    </ul>
+  </div>
+
+  <!-- Right side: Pricing -->
+  <div class="card-pricing">
+    <h3>Pricing</h3>
+<div class="pricing-triangle">
+  <!-- Top Mid-Size -->
+  <div class="price-card mid-size-card">
+    <h3>Basic</h3>
+    <p class="price">$290</p>
+    <p class="note">Regular Coupes, Sedans, Hatchbacks</p>
+  </div>
+
+  <!-- Bottom Row -->
+  <div class="bottom-row">
+    <div class="price-card small-card">
+      <h4>Small Cars</h4>
+      <p class="price">$250</p>
+      <p class="note">Subcompact:  <br> (Yaris, Micra, Motorcycle, etc.)</p>
+    </div>
+    <div class="price-card large-card">
+      <h4>Large Vehicles</h4>
+      <p class="price">$320</p>
+      <p class="note">Trucks, Vans, Full-Size SUVs</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div>
+  <p>Professional detailing without the dealership price tag.</p>
+   <a href="#" id="open-booking" class="book-now-btn">Book Now</a>
 </div>
 
 
-    <!-- Wash Services Section -->
-    <div class="wash-services">
-        <div class="card">
-            <img src="../images/detailing.png" alt="Exterior Wash Icon" class="card-icon">
-            <div class="card-content">
-                <h2>What's Included?</h2>
-                <p>
-                    Our Full Car Detailing service deep cleans and restores your vehicle inside and out, leaving it looking and feeling brand new.
-                    <br><br>
-                    ✅ Exterior: Hand wash, decontamination, machine polish, and wax/sealant for a flawless shine and protection.<br>
-                    ✅ Interior: Deep vacuuming, stain removal, steam cleaning, and UV protection for a fresh, spotless cabin.<br>
-                    ✅ Wheels & Tires: Thorough cleaning and dressing for a sleek and shiny finish.<br><br>
-                    Why Get a Full Detail?<br>
-                    🚗 Enhance your car’s appearance & resale value<br>
-                    ⛨ Protect paint and interior from wear & damage<br>
-                    🦠 Remove bacteria, odors, and allergens<br>
-                    ✨ Enjoy and show off a fresh, clean ride every day<br><br>
-                    We can come to you! Book your detail today and experience the difference. 🚗✨
-                </p>
-                <a href="#" id="open-booking" class="book-now-btn">Book Now!</a>
-            </div>
-        </div>
+
+
+
+
+  <!-- Booking Modal (unchanged) -->
+  <div id="booking-modal">
+    <div class="modal-content">
+      <button id="close-booking" class="close-button">&times;</button>
+      <h2>Book a Detail</h2>
+      <form id="booking-form" action="https://formsubmit.co/contact.curbside@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false" />
+
+        <label for="book-name">Name:<span class="red-letter">*</span></label>
+        <input type="text" id="book-name" name="name" required placeholder="First Name" />
+
+        <label for="book-email">Email:<span class="red-letter">*</span></label>
+        <input type="email" id="book-email" name="email" required placeholder="example@gmail.com" />
+
+        <label for="book-phone">Phone:</label>
+        <input type="tel" id="book-phone" name="phone" placeholder="Optional phone number" />
+
+        <label for="book-date">Preferred Date:<span class="red-letter">*</span></label>
+        <input type="date" id="book-date" name="date" required />
+
+        <label for="book-time">Preferred Time:<span class="red-letter">*</span></label>
+        <select id="book-time" name="time" required>
+          <option value="" disabled selected>Select a time</option>
+          <option value="8am">8am</option>
+          <option value="2pm">2pm</option>
+          <option value="6pm">6pm</option>
+        </select>
+
+        <label for="book-message">Message (Optional):</label>
+        <textarea
+          id="book-message"
+          name="message"
+          rows="4"
+          placeholder="Make, model, year, trim, or special requests?"
+        ></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
     </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  
 
-      <!-- Booking Modal -->
-    <div id="booking-modal">
-      <div class="modal-content">
-        <button id="close-booking" class="close-button">&times;</button>
-        <h2>Book a Detail</h2>
-        <form id="booking-form" action="https://formsubmit.co/contact.curbside@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-
-          <label for="book-name">Name:<span class="red-letter">*</span></label>
-          <input type="text" id="book-name" name="name" required placeholder="First Name">
-
-          <label for="book-email">Email:<span class="red-letter">*</span></label>
-          <input type="email" id="book-email" name="email" required placeholder="example@gmail.com">
-
-          <label for="book-phone">Phone:</label>
-          <input type="tel" id="book-phone" name="phone">
-
-          <label for="book-date">Preferred Date:<span class="red-letter">*</span></label>
-          <input type="date" id="book-date" name="date" required>
-
-          <label for="book-time">Preferred Time:<span class="red-letter">*</span></label>
-          <select id="book-time" name="time" required>
-            <option value="8am">8am</option>
-            <option value="2pm">2pm</option>
-            <option value="6pm">6pm</option>
-          </select>
-
-          <label for="book-message">Message (Optional):</label>
-          <textarea id="book-message" name="message" rows="4" placeholder="Make, Model, Year, trim, special requests?"></textarea>
-
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
 
     <!-- Footer -->
     <footer>
