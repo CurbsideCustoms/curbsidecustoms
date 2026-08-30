@@ -27,16 +27,16 @@ img { display: block; width: 100%; }
   position: absolute;
   z-index: 20;
   inset: 0 0 auto 0;
-  padding: 16px 0;
+  padding: 12px 0;
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 18px;
 }
 .brand { display: flex; align-items: center; flex: 0 0 auto; }
-.brand img { width: 390px; max-height: 145px; object-fit: contain; }
+.brand img { width: 460px; max-height: 165px; object-fit: contain; }
 .nav-links { display: flex; gap: 24px; align-items: center; font-size: .95rem; font-weight: 700; }
 .nav-links a { color: rgba(255,255,255,.88); transition: .2s ease; }
 .nav-links a:hover { color: var(--accent-2); }
@@ -69,7 +69,7 @@ img { display: block; width: 100%; }
   min-height: 430px;
   display: grid;
   align-items: end;
-  padding: 165px 0 64px;
+  padding: 185px 0 64px;
   background:
     linear-gradient(90deg, rgba(5,8,10,.96), rgba(5,8,10,.72) 55%, rgba(5,8,10,.35)),
     linear-gradient(180deg, rgba(5,8,10,.12), #090b0d 100%),
@@ -261,11 +261,11 @@ textarea::placeholder { color: #707985; }
 .footer-bottom { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--border); color: #79828c; font-size: .86rem; }
 
 @media (max-width: 900px) {
-  .brand img { width: min(340px, calc(100vw - 105px)); max-height: 128px; }
+  .brand img { width: min(390px, calc(100vw - 102px)); max-height: 145px; }
   .nav-links {
     display: none;
     position: absolute;
-    top: 116px;
+    top: 126px;
     left: 20px;
     right: 20px;
     flex-direction: column;
@@ -285,8 +285,8 @@ textarea::placeholder { color: #707985; }
 
 @media (max-width: 620px) {
   .container { width: min(100% - 28px, 1180px); }
-  .brand img { width: min(300px, calc(100vw - 92px)); max-height: 112px; }
-  .quote-hero { min-height: 390px; padding-top: 170px; }
+  .brand img { width: min(340px, calc(100vw - 86px)); max-height: 126px; }
+  .quote-hero { min-height: 390px; padding-top: 190px; }
   .quote-hero h1 { font-size: 3rem; }
   .quote-section { padding: 56px 0 72px; }
   .quote-info, .quote-card { border-radius: 19px; padding: 22px; }
