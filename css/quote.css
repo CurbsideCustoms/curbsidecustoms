@@ -144,6 +144,7 @@ img { display: block; width: 100%; }
 .field.full { grid-column: 1 / -1; }
 .field label, .fieldset-label { font-weight: 800; font-size: .92rem; }
 .required { color: var(--accent-2); }
+.optional { color: var(--muted); font-weight: 650; }
 input,
 select,
 textarea {
@@ -184,6 +185,62 @@ textarea::placeholder { color: #707985; }
 .check-option input { width: 18px; min-height: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
 .check-option span { font-size: .93rem; font-weight: 700; }
 .service-error { color: #ff9f9f; min-height: 1.2em; font-size: .85rem; font-weight: 700; }
+
+.upload-card {
+  display: grid;
+  grid-template-columns: minmax(180px, .72fr) 1.28fr;
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+  border: 1px dashed rgba(99,212,255,.32);
+  border-radius: 16px;
+  background: rgba(0,174,239,.045);
+}
+.upload-card input[type="file"] {
+  min-height: 52px;
+  padding: 8px;
+  background: #0b0f13;
+  cursor: pointer;
+}
+.upload-card input[type="file"]::file-selector-button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 13px;
+  margin-right: 10px;
+  background: var(--accent);
+  color: #00141c;
+  font-weight: 900;
+  cursor: pointer;
+}
+.upload-copy { display: grid; gap: 4px; min-width: 0; }
+.upload-copy strong { font-size: .96rem; }
+.upload-copy span { color: var(--muted); font-size: .86rem; line-height: 1.45; }
+.photo-preview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.preview-item {
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: #0b0f13;
+  border-radius: 13px;
+  overflow: hidden;
+}
+.preview-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.preview-item span {
+  display: block;
+  padding: 7px 8px;
+  color: var(--muted);
+  font-size: .72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .form-note { color: var(--muted); font-size: .84rem; margin: 16px 0 0; }
 .submit-row { display: flex; align-items: center; gap: 16px; margin-top: 26px; flex-wrap: wrap; }
@@ -230,6 +287,8 @@ textarea::placeholder { color: #707985; }
   .form-grid { grid-template-columns: 1fr; }
   .field.full { grid-column: auto; }
   .service-options { grid-template-columns: 1fr; }
+  .upload-card { grid-template-columns: 1fr; }
+  .photo-preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .submit-row .btn-primary { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; }
 }
