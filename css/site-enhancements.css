@@ -1,5 +1,11 @@
 /* Shared polish: subtle reveal motion, Google reviews and privacy page. */
 
+/* Use the new transparent Curbside Detailing logo anywhere the shared header/footer logo appears. */
+.brand img,
+.footer-logo {
+  content: url('/images/Curbside%20Detailing%20Logo.png');
+}
+
 .reveal-ready [data-reveal] {
   opacity: 0;
   transform: translate3d(0, var(--reveal-y, 14px), 0);
