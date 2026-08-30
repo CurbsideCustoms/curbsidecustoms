@@ -1,0 +1,95 @@
+.mobile-quote-fab {
+  display: none;
+}
+
+.contact-method {
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.method-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: rgba(0, 174, 239, .12);
+  border: 1px solid rgba(99, 212, 255, .14);
+  flex: 0 0 auto;
+}
+
+.method-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.method-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+@media (max-width: 620px) {
+  .mobile-quote-fab {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    z-index: 80;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 0 20px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #00141c;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: -.01em;
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 14px 36px rgba(0,174,239,.34), 0 8px 24px rgba(0,0,0,.38);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-quote-fab svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: 0 0 auto;
+  }
+
+  .mobile-quote-fab:active {
+    transform: translateY(1px) scale(.985);
+  }
+
+  .footer {
+    padding-bottom: calc(108px + env(safe-area-inset-bottom));
+  }
+
+  .contact-method {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .method-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .method-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+}
