@@ -47,7 +47,7 @@
           <div class="step-list">
             <div class="step">
               <div class="step-number">1</div>
-              <div><strong>Send the vehicle details</strong><span>Year, make, model, size, condition and what you want done.</span></div>
+              <div><strong>Send the vehicle details</strong><span>Year, make, model, size, condition, photos and what you want done.</span></div>
             </div>
             <div class="step">
               <div class="step-number">2</div>
@@ -59,7 +59,7 @@
             </div>
           </div>
 
-          <div class="info-note">Have unusual stains, pet hair, odors, excessive dirt, or something specific you want fixed? Mention it in the notes so we can account for it.</div>
+          <div class="info-note">Photos are especially useful for stains, pet hair, odors, heavy dirt, neglected interiors, or anything unusual that could affect the quote.</div>
         </aside>
 
         <div class="quote-card">
@@ -68,7 +68,7 @@
             <p>Required fields are marked with an asterisk.</p>
           </div>
 
-          <form id="quote-request-form" action="https://formsubmit.co/contact.curbside@gmail.com" method="POST">
+          <form id="quote-request-form" action="https://formsubmit.co/contact.curbside@gmail.com" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_subject" value="New Curbside Customs Quote Request">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
@@ -154,6 +154,19 @@
               </div>
 
               <div class="field full">
+                <label for="vehicle-photos">Vehicle photos <span class="optional">(recommended)</span></label>
+                <div class="upload-card">
+                  <input id="vehicle-photos" name="Vehicle Photos" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple>
+                  <div class="upload-copy">
+                    <strong>Add up to 4 photos</strong>
+                    <span>Show the areas you want cleaned or anything that may affect the quote. JPG, PNG, WEBP or phone photos work best.</span>
+                  </div>
+                </div>
+                <div class="photo-preview" id="photo-preview" aria-live="polite"></div>
+                <span class="service-error" id="photo-error" aria-live="polite"></span>
+              </div>
+
+              <div class="field full">
                 <label for="notes">Vehicle condition & notes</label>
                 <textarea id="notes" name="Notes" placeholder="Tell us about stains, pet hair, odors, spills, excessive dirt, special requests, or anything else that could affect the job."></textarea>
               </div>
@@ -206,6 +219,10 @@
     const quoteForm = document.getElementById('quote-request-form');
     const serviceChoices = Array.from(document.querySelectorAll('.service-choice'));
     const serviceError = document.getElementById('service-error');
+    const photoInput = document.getElementById('vehicle-photos');
+    const photoPreview = document.getElementById('photo-preview');
+    const photoError = document.getElementById('photo-error');
+    let previewUrls = [];
 
     menuButton.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('open');
@@ -231,13 +248,67 @@
       });
     });
 
+    function clearPhotoPreviews() {
+      previewUrls.forEach(url => URL.revokeObjectURL(url));
+      previewUrls = [];
+      photoPreview.innerHTML = '';
+    }
+
+    photoInput.addEventListener('change', () => {
+      clearPhotoPreviews();
+      photoError.textContent = '';
+      photoInput.setCustomValidity('');
+
+      const files = Array.from(photoInput.files || []);
+      if (files.length > 4) {
+        photoError.textContent = 'Please choose no more than 4 photos.';
+        photoInput.setCustomValidity('Please choose no more than 4 photos.');
+        return;
+      }
+
+      const oversized = files.find(file => file.size > 5 * 1024 * 1024);
+      if (oversized) {
+        photoError.textContent = 'Please keep each photo under 5 MB.';
+        photoInput.setCustomValidity('Please keep each photo under 5 MB.');
+        return;
+      }
+
+      files.forEach((file, index) => {
+        const url = URL.createObjectURL(file);
+        previewUrls.push(url);
+        const item = document.createElement('div');
+        item.className = 'preview-item';
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = `Selected vehicle photo ${index + 1}`;
+        const label = document.createElement('span');
+        label.textContent = file.name;
+        item.append(img, label);
+        photoPreview.appendChild(item);
+      });
+    });
+
     quoteForm.addEventListener('submit', (event) => {
+      let blocked = false;
+
       if (!serviceChoices.some(item => item.checked)) {
-        event.preventDefault();
         serviceError.textContent = 'Please select at least one service option.';
-        document.getElementById('service-options').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        blocked = true;
+      }
+
+      if (!photoInput.checkValidity()) {
+        photoInput.reportValidity();
+        blocked = true;
+      }
+
+      if (blocked) {
+        event.preventDefault();
+        const target = serviceError.textContent ? document.getElementById('service-options') : photoInput;
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
+
+    window.addEventListener('beforeunload', clearPhotoPreviews);
   </script>
 </body>
 </html>
