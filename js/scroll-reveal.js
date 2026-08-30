@@ -1,4 +1,25 @@
 (() => {
+  const newLogo = '/images/Curbside%20Detailing%20Logo.png';
+  const newLogoAbsolute = 'https://www.curbsidedetailing.ca/images/Curbside%20Detailing%20Logo.png';
+
+  document.querySelectorAll('img').forEach((img) => {
+    const src = img.getAttribute('src') || '';
+    if (src.endsWith('nob_logo.png') || src.endsWith('black_logo.png')) {
+      img.src = newLogo;
+      img.alt = 'Curbside Detailing';
+    }
+  });
+
+  document.querySelectorAll('link[rel~="icon"]').forEach((icon) => {
+    icon.href = newLogo;
+  });
+
+  document.querySelectorAll('script[type="application/ld+json"]').forEach((script) => {
+    script.textContent = script.textContent
+      .replaceAll('https://www.curbsidedetailing.ca/images/black_logo.png', newLogoAbsolute)
+      .replaceAll('https://www.curbsidedetailing.ca/images/nob_logo.png', newLogoAbsolute);
+  });
+
   const googleReviewLink = document.querySelector('.google-review-copy .btn-primary');
   if (googleReviewLink) {
     googleReviewLink.href = 'https://share.google/aPkrRud2b8IiAiaex';
