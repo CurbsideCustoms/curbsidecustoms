@@ -1,322 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- Preload CSS -->
-    <link rel="preload" href="/css/styles.css" as="style">
-    <link rel="preload" href="/css/detailing-page.css" as="style">
-
-
-    <meta name="description" content="Curbside Customs is a mobile car detailing service in BC. Get quality care right at your curb.">
-    <meta name="keywords" content="curbside customs, car detailing Burnaby, mobile detailing, car mods, car service BC">
-    <meta name="author" content="Curbside Customs">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curbside Customs</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/detailing-page.css">
-    <link rel="icon" type="image/png" href="../images/black_logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a personalized mobile detailing quote from Curbside Customs in Burnaby, BC and surrounding areas.">
+  <meta name="author" content="Curbside Customs">
+  <title>Get a Detailing Quote | Curbside Customs</title>
+  <link rel="stylesheet" href="/css/quote.css">
+  <link rel="icon" type="image/png" href="/images/black_logo.png">
 </head>
-<body class="detailing-page">
-  <header>
-    <h1>Full Detail</h1>
-    <div id="home-icon">
-      <a href="../index.html"><img src="../images/home.png" alt="Home Icon" /></a>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Curbside Customs home">
+        <img src="/images/nob_logo.png" alt="Curbside Customs">
+      </a>
+
+      <button class="menu-button" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/#results">Results</a>
+        <a href="/html/about.html">About</a>
+        <a href="/html/contact.html">Contact</a>
+        <a class="nav-cta" href="#quote-form">Quote Now</a>
+      </nav>
     </div>
-    <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
   </header>
 
-  <!-- Hamburger Menu Overlay -->
-  <div id="hamburger-overlay">
-    <div id="hamburger-menu">
-      <a href="../index.html">Home</a>
-      <a href="../html/detailing-page.html">Detail</a>
-      <a href="../html/about.html">About</a>
-      <a href="../html/contact.html">Contact us</a>
-    </div>
-  </div>
-
-<!-- Full Detail Card -->
-<div class="wash-services">
-  <div class="card vertical">
-    <img src="../images/detailing.png" alt="Exterior Wash Icon" class="card-icon" />
-    <div class="card-content">
-      <h2>Full Interior & Exterior Detail</h2>
-      <p>
-        Our premium full-service package is designed to restore your car inside and out —
-        perfect for resale, deep seasonal cleaning, or just giving your ride the attention it deserves.
-      </p>
-
-      <div class="card-content-columns">
-  <!-- Left side: What's Included -->
-  <div class="card-includes">
-    <h3>What’s Included</h3>
-    <ul class="detail-list">
-      <li>✅ Hand Wash & Paint Decontamination</li>
-      <li>✅ Full Interior Vacuum & Steam Clean</li>
-      <li>✅ Stain Removal & Odor Elimination</li>
-      <li>✅ Leather & Plastic UV Protection</li>
-      <li>✅ Wheels, Tires, & Trim Cleaned & Dressed</li>
-    </ul>
-
-  <div class="card-footer">
-    <p>Professional detailing without the dealership price tag.</p>
-    <a href="#" id="open-booking" class="book-now-btn">Book Now</a>
-  </div>
-
-  </div>
-
-  <!-- Right side: Pricing -->
-  <div class="card-pricing">
-    <h3>Pricing</h3>
-<div class="pricing-triangle">
-  <!-- Top Mid-Size -->
-  <div class="price-card mid-size-card">
-    <h3>Basic</h3>
-    <p class="price">$290</p>
-    <p class="note">Regular Coupes, Sedans, Hatchbacks</p>
-  </div>
-
-  <!-- Bottom Row -->
-  <div class="bottom-row">
-    <div class="price-card small-card">
-      <h4>Small Cars</h4>
-      <p class="price">$250</p>
-      <p class="note">Subcompact:  <br> (Yaris, Micra, Motorcycle, etc.)</p>
-    </div>
-    <div class="price-card large-card">
-      <h4>Large Vehicles</h4>
-      <p class="price">$350</p>
-      <p class="note">Trucks, Vans, Full-Size SUVs</p>
-    </div>
-  </div>
-</div>
-
-<div class="price-card small-card" id="wash">
-  <div class="card-content">
-    <h4>Wash & Vac</h4>
-    <p class="price">$90</p>
-    <p class="note">
-      Any size vehicle
-    </p>
+  <main>
+    <section class="quote-hero">
+      <div class="container">
+        <span class="eyebrow">Personalized detailing quote</span>
+        <h1>Tell us about <span>your vehicle.</span></h1>
+        <p>No package guessing. Give us the basics about your vehicle, its condition, and what you want done. We’ll review it and get back to you with a quote.</p>
       </div>
+    </section>
 
-      
+    <section class="quote-section" id="quote-form">
+      <div class="container quote-layout">
+        <aside class="quote-info">
+          <h2>What happens next?</h2>
+          <p>A good quote starts with a little context. The more detail you give us, the more accurate we can be.</p>
 
-</div>
+          <div class="step-list">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div><strong>Send the vehicle details</strong><span>Year, make, model, size, condition and what you want done.</span></div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div><strong>We review the request</strong><span>We look at the work involved instead of forcing the car into a fixed package.</span></div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div><strong>We get back to you</strong><span>You’ll receive a quote and we can confirm timing and service details from there.</span></div>
+            </div>
+          </div>
 
-</div>
+          <div class="info-note">Have unusual stains, pet hair, odors, excessive dirt, or something specific you want fixed? Mention it in the notes so we can account for it.</div>
+        </aside>
 
-  
+        <div class="quote-card">
+          <div class="form-heading">
+            <h2>Request a quote</h2>
+            <p>Required fields are marked with an asterisk.</p>
+          </div>
 
+          <form action="https://formsubmit.co/contact.curbside@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Curbside Customs Quote Request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://www.curbsidedetailing.ca/html/thank-you.html">
+            <input type="hidden" name="_autoresponse" value="Thanks for requesting a quote from Curbside Customs. We received your vehicle details and will get back to you as soon as we can.">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full name <span class="required">*</span></label>
+                <input id="name" name="Name" type="text" autocomplete="name" placeholder="Your name" required>
+              </div>
 
+              <div class="field">
+                <label for="phone">Phone number <span class="required">*</span></label>
+                <input id="phone" name="Phone" type="tel" autocomplete="tel" placeholder="604-555-0123" required>
+              </div>
 
+              <div class="field">
+                <label for="email">Email <span class="required">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
 
+              <div class="field">
+                <label for="location">City / area <span class="required">*</span></label>
+                <input id="location" name="Service Area" type="text" autocomplete="address-level2" placeholder="Burnaby, New Westminster, etc." required>
+              </div>
 
-  <!-- Booking Modal (unchanged) -->
-  <div id="booking-modal">
-    <div class="modal-content">
-      <button id="close-booking" class="close-button">&times;</button>
-      <h2>Book a Detail</h2>
-      <form id="booking-form" action="https://formsubmit.co/contact.curbside@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false" />
+              <div class="field">
+                <label for="year">Vehicle year <span class="required">*</span></label>
+                <input id="year" name="Vehicle Year" type="text" inputmode="numeric" maxlength="4" placeholder="2020" required>
+              </div>
 
-        <label for="book-name">Name:<span class="red-letter">*</span></label>
-        <input type="text" id="book-name" name="name" required placeholder="First Name" />
+              <div class="field">
+                <label for="make">Make <span class="required">*</span></label>
+                <input id="make" name="Vehicle Make" type="text" placeholder="Honda" required>
+              </div>
 
-        <label for="book-email">Email:<span class="red-letter">*</span></label>
-        <input type="email" id="book-email" name="email" required placeholder="example@gmail.com" />
+              <div class="field">
+                <label for="model">Model <span class="required">*</span></label>
+                <input id="model" name="Vehicle Model" type="text" placeholder="Civic" required>
+              </div>
 
-        <label for="book-phone">Phone:</label>
-        <input type="tel" id="book-phone" name="phone" placeholder="Optional phone number" />
+              <div class="field">
+                <label for="vehicle-type">Vehicle type <span class="required">*</span></label>
+                <select id="vehicle-type" name="Vehicle Type" required>
+                  <option value="" selected disabled>Select vehicle type</option>
+                  <option>Coupe / Sedan / Hatchback</option>
+                  <option>Small SUV / Crossover</option>
+                  <option>Large SUV</option>
+                  <option>Pickup Truck</option>
+                  <option>Van</option>
+                  <option>Motorcycle</option>
+                  <option>Other</option>
+                </select>
+              </div>
 
-        <label for="book-date">Preferred Date:<span class="red-letter">*</span></label>
-        <input type="date" id="book-date" name="date" required />
+              <div class="field full">
+                <span class="fieldset-label">What are you interested in? <span class="required">*</span></span>
+                <div class="service-options">
+                  <label class="check-option"><input type="checkbox" name="Service - Complete Detail" value="Yes"><span>Complete interior & exterior</span></label>
+                  <label class="check-option"><input type="checkbox" name="Service - Interior" value="Yes"><span>Interior detailing</span></label>
+                  <label class="check-option"><input type="checkbox" name="Service - Exterior" value="Yes"><span>Exterior detailing</span></label>
+                  <label class="check-option"><input type="checkbox" name="Service - Unsure" value="Yes"><span>Not sure / recommend something</span></label>
+                </div>
+              </div>
 
-        <label for="book-time">Preferred Time:<span class="red-letter">*</span></label>
-        <select id="book-time" name="time" required>
-          <option value="" disabled selected>Select a time</option>
-          <option value="8am">8am</option>
-          <option value="2pm">2pm</option>
-          <option value="6pm">6pm</option>
-        </select>
+              <div class="field">
+                <label for="condition">Overall condition <span class="required">*</span></label>
+                <select id="condition" name="Vehicle Condition" required>
+                  <option value="" selected disabled>Select condition</option>
+                  <option>Light - generally clean</option>
+                  <option>Average - normal daily use</option>
+                  <option>Heavy - significant dirt / stains</option>
+                  <option>Very heavy - needs major attention</option>
+                </select>
+              </div>
 
-        <label for="book-message">Message (Optional):</label>
-        <textarea
-          id="book-message"
-          name="message"
-          rows="4"
-          placeholder="Make, model, year, trim, or special requests?"
-        ></textarea>
+              <div class="field">
+                <label for="preferred-date">Preferred date</label>
+                <input id="preferred-date" name="Preferred Date" type="date">
+              </div>
 
-        <button type="submit">Submit</button>
-      </form>
+              <div class="field full">
+                <label for="notes">Vehicle condition & notes</label>
+                <textarea id="notes" name="Notes" placeholder="Tell us about stains, pet hair, odors, spills, excessive dirt, special requests, or anything else that could affect the job."></textarea>
+              </div>
+            </div>
+
+            <p class="form-note">Submitting this form requests a quote; it does not automatically confirm an appointment.</p>
+
+            <div class="submit-row">
+              <button class="btn-primary" type="submit">Send Quote Request</button>
+              <span>We’ll review the details and follow up.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <img class="footer-logo" src="/images/nob_logo.png" alt="Curbside Customs">
+      <div class="footer-copy">© 2026 Curbside Customs • Mobile detailing in Burnaby, BC and surrounding areas.</div>
     </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  
-  
+  </footer>
 
+  <script>
+    const menuButton = document.getElementById('menu-button');
+    const navLinks = document.getElementById('nav-links');
+    const preferredDate = document.getElementById('preferred-date');
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../html/about.html">About</a></li>
-                    <li><a href="../html/contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <p>Feel free to contact us <a href="../html/contact.html">here</a></p>
-                <p>Location: Burnaby, BC</p>
-            </div>
-            <div class="footer-social">
-                <h4>Follow Us</h4>
-                <a href="https://www.instagram.com/curbsidecustomsgarage/?hl=en" class="social-icon" target="_blank">
-                    <img src="../images/instagram.png" alt="Instagram">
-                </a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 CurbsideCustoms. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-const menuToggle = document.getElementById('hamburger-icon');
-const hamburgerOverlay = document.getElementById('hamburger-overlay');
-const hamburgerMenu = document.getElementById('hamburger-menu');
-
-const openBooking = document.getElementById('open-booking');
-const bookingModal = document.getElementById('booking-modal');
-const closeBooking = document.getElementById('close-booking');
-const bookingForm = document.getElementById('booking-form');
-
-// ✅ Form input fields
-const bookName = document.getElementById('book-name');
-const bookEmail = document.getElementById('book-email');
-const bookPhone = document.getElementById('book-phone');
-const bookDate = document.getElementById('book-date');
-const bookTime = document.getElementById('book-time');
-const bookMessage = document.getElementById('book-message');
-
-
-// 🌐 Your backend API URL
-const API_URL = 'https://curbside-customs-backend.onrender.com';
-
-// 🔓 Open booking modal
-openBooking.addEventListener('click', (e) => {
-  e.preventDefault();
-  updateTimeOptions(); // 👈 refresh available times
-  bookingModal.classList.add('open');
-});
-
-
-// ❌ Close modal
-closeBooking.addEventListener('click', () => {
-  bookingModal.classList.remove('open');
-});
-bookingModal.addEventListener('click', (e) => {
-  if (e.target === bookingModal) {
-    bookingModal.classList.remove('open');
-  }
-});
-
-// 🍔 Hamburger menu toggle
-menuToggle.addEventListener('click', () => {
-  hamburgerOverlay.classList.add('open');
-  hamburgerMenu.classList.add('open');
-  document.body.classList.add('menu-open');
-});
-hamburgerOverlay.addEventListener('click', (e) => {
-  if (!hamburgerMenu.contains(e.target)) {
-    hamburgerOverlay.classList.remove('open');
-    hamburgerMenu.classList.remove('open');
-    document.body.classList.remove('menu-open');
-  }
-});
-
-// 🗓️ Update available times from backend
-function updateTimeOptions() {
-  const date = bookDate.value;
-  if (!date) return;
-
-  fetch(`${API_URL}/api/available?date=${date}`)
-    .then(res => res.json())
-    .then(bookedTimes => {
-      for (const option of bookTime.options) {
-        if (!option.value) continue;
-        if (bookedTimes.includes(option.value)) {
-          option.disabled = true;
-          option.textContent = option.value === "custom"
-            ? "Custom (already booked)"
-            : `${option.value} (already booked)`;
-        } else {
-          option.disabled = false;
-          option.textContent = option.value === "custom"
-            ? "Custom (book in advance)"
-            : option.value;
-        }
-      }
-    })
-    .catch(err => {
-      console.error('Failed to fetch booked times:', err);
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
     });
-}
 
-bookDate.addEventListener('change', updateTimeOptions);
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-// 📤 Submit booking to backend
-bookingForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const bookingData = {
-    name: bookName.value,
-    email: bookEmail.value,
-    phone: bookPhone.value,
-    date: bookDate.value,
-    time: bookTime.value,
-    message: bookMessage.value
-  };
-
-  fetch(`${API_URL}/api/book`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(bookingData)
-})
-  .then(async res => {
-    if (!res.ok) {
-      const err = await res.text();
-      throw new Error(err);
-    }
-    return res.json();
-  })
-  .then(data => {
-    alert('✅ Booking confirmed! Check your email.');
-    bookingModal.classList.remove('open');
-    updateTimeOptions();
-  })
-  .catch(err => {
-    console.error('Booking error:', err);
-    alert('⚠️ Could not connect to booking system.');
-  });
-});
-
-
-
-// Run once on page load
-document.addEventListener('DOMContentLoaded', updateTimeOptions);
-</script>
-
-
-
-
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    preferredDate.min = `${yyyy}-${mm}-${dd}`;
+  </script>
 </body>
 </html>
