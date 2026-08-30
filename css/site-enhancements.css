@@ -6,6 +6,11 @@
   content: url('/images/Curbside%20Detailing%20Logo.png');
 }
 
+/* Give the full header a little breathing room from the top edge. */
+.topbar {
+  padding: 22px 0 12px;
+}
+
 /* The new artwork fills much more of its canvas than the old logo. Keep the
    header logo compact and reserve enough room for the navigation. */
 .nav {
@@ -47,7 +52,8 @@
 .scroll-top-button {
   position: fixed;
   top: 24px;
-  right: 24px;
+  left: 24px;
+  right: auto;
   z-index: 60;
   width: 52px;
   height: 52px;
@@ -293,6 +299,10 @@
 }
 
 @media (max-width: 620px) {
+  .topbar {
+    padding-top: 18px;
+  }
+
   .brand img {
     width: min(190px, calc(100vw - 108px));
     max-height: 68px;
@@ -304,7 +314,8 @@
 
   .scroll-top-button {
     top: 16px;
-    right: 16px;
+    left: 16px;
+    right: auto;
     width: 46px;
     height: 46px;
   }
