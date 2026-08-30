@@ -5,10 +5,11 @@
 .contact-method {
   grid-template-columns: 52px minmax(0, 1fr);
   align-items: center;
-  gap: 14px;
+  gap: 4px 14px;
 }
 
 .method-icon {
+  grid-row: 1 / span 2;
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -30,10 +31,9 @@
   stroke-linejoin: round;
 }
 
-.method-copy {
-  min-width: 0;
-  display: grid;
-  gap: 4px;
+.contact-method .method-label,
+.contact-method strong {
+  grid-column: 2;
 }
 
 @media (max-width: 620px) {
@@ -80,7 +80,7 @@
 
   .contact-method {
     grid-template-columns: 48px minmax(0, 1fr);
-    gap: 12px;
+    gap: 4px 12px;
   }
 
   .method-icon {
