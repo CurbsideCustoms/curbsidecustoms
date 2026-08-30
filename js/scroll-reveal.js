@@ -1,34 +1,7 @@
 (() => {
-  const OLD_NAME = 'Curbside Customs';
-  const NEW_NAME = 'Curbside Detailing';
-
-  const replaceBrand = (value) => typeof value === 'string' ? value.replaceAll(OLD_NAME, NEW_NAME) : value;
-
-  document.title = replaceBrand(document.title);
-
-  document.querySelectorAll('meta[content]').forEach(meta => {
-    meta.setAttribute('content', replaceBrand(meta.getAttribute('content')));
-  });
-
-  document.querySelectorAll('[alt], [aria-label], [title], input[value]').forEach(element => {
-    ['alt', 'aria-label', 'title', 'value'].forEach(attribute => {
-      if (element.hasAttribute(attribute)) {
-        element.setAttribute(attribute, replaceBrand(element.getAttribute(attribute)));
-      }
-    });
-  });
-
-  document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
-    script.textContent = replaceBrand(script.textContent);
-  });
-
-  if (document.body) {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(node => {
-      node.nodeValue = replaceBrand(node.nodeValue);
-    });
+  const googleReviewLink = document.querySelector('.google-review-copy .btn-primary');
+  if (googleReviewLink) {
+    googleReviewLink.href = 'https://share.google/aPkrRud2b8IiAiaex';
   }
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
