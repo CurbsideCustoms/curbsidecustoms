@@ -35,7 +35,7 @@ img { display: block; width: 100%; }
   justify-content: space-between;
   gap: 24px;
 }
-.brand img { width: 170px; max-height: 64px; object-fit: contain; }
+.brand img { width: 300px; max-height: 110px; object-fit: contain; }
 .nav-links { display: flex; gap: 28px; align-items: center; font-size: .95rem; font-weight: 700; }
 .nav-links a { color: rgba(255,255,255,.88); transition: .2s ease; }
 .nav-links a:hover { color: var(--accent-2); }
@@ -105,6 +105,7 @@ img { display: block; width: 100%; }
 }
 .quote-info,
 .quote-card {
+  min-width: 0;
   border: 1px solid var(--border);
   background: linear-gradient(180deg, #151a20, #0f1317);
   border-radius: 24px;
@@ -135,12 +136,12 @@ img { display: block; width: 100%; }
   font-size: .9rem;
 }
 
-.quote-card { padding: 34px; }
+.quote-card { padding: 34px; overflow: hidden; }
 .form-heading { margin-bottom: 28px; }
 .form-heading h2 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -.03em; }
 .form-heading p { margin: 0; color: var(--muted); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.field { display: grid; gap: 8px; }
+.form-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; min-width: 0; }
+.field { display: grid; gap: 8px; min-width: 0; }
 .field.full { grid-column: 1 / -1; }
 .field label, .fieldset-label { font-weight: 800; font-size: .92rem; }
 .required { color: var(--accent-2); }
@@ -149,6 +150,8 @@ input,
 select,
 textarea {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   border: 1px solid rgba(255,255,255,.12);
   background: #0c1014;
   color: white;
@@ -159,6 +162,7 @@ textarea {
   outline: none;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
+input[type="date"] { display: block; min-width: 0; max-width: 100%; width: 100%; }
 textarea { resize: vertical; min-height: 130px; }
 input:focus,
 select:focus,
@@ -169,7 +173,7 @@ textarea:focus {
 input::placeholder,
 textarea::placeholder { color: #707985; }
 
-.service-options { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+.service-options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
 .check-option {
   display: flex;
   align-items: center;
@@ -182,7 +186,7 @@ textarea::placeholder { color: #707985; }
   color: #dfe4e9;
   cursor: pointer;
 }
-.check-option input { width: 18px; min-height: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
+.check-option input { width: 18px; min-width: 18px; min-height: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
 .check-option span { font-size: .93rem; font-weight: 700; }
 .service-error { color: #ff9f9f; min-height: 1.2em; font-size: .85rem; font-weight: 700; }
 
@@ -256,10 +260,11 @@ textarea::placeholder { color: #707985; }
 .footer-bottom { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--border); color: #79828c; font-size: .86rem; }
 
 @media (max-width: 900px) {
+  .brand img { width: min(270px, calc(100vw - 110px)); max-height: 100px; }
   .nav-links {
     display: none;
     position: absolute;
-    top: 82px;
+    top: 104px;
     left: 20px;
     right: 20px;
     flex-direction: column;
@@ -272,19 +277,19 @@ textarea::placeholder { color: #707985; }
   }
   .nav-links.open { display: flex; }
   .nav-links a { padding: 11px 12px; }
-  .menu-button { display: inline-grid; place-items: center; }
+  .menu-button { display: inline-grid; place-items: center; flex: 0 0 auto; }
   .quote-layout { grid-template-columns: 1fr; }
   .quote-info { position: static; }
 }
 
 @media (max-width: 620px) {
   .container { width: min(100% - 28px, 1180px); }
-  .brand img { width: 145px; }
-  .quote-hero { min-height: 390px; padding-top: 130px; }
+  .brand img { width: min(245px, calc(100vw - 100px)); max-height: 92px; }
+  .quote-hero { min-height: 390px; padding-top: 150px; }
   .quote-hero h1 { font-size: 3rem; }
   .quote-section { padding: 56px 0 72px; }
   .quote-info, .quote-card { border-radius: 19px; padding: 22px; }
-  .form-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: minmax(0, 1fr); }
   .field.full { grid-column: auto; }
   .service-options { grid-template-columns: 1fr; }
   .upload-card { grid-template-columns: 1fr; }
