@@ -149,6 +149,30 @@
       </div>
     </section>
 
+    <section class="section comparison-section">
+      <div class="container comparison-layout">
+        <div class="comparison-copy">
+          <span class="kicker">Before & After</span>
+          <h2>Slide across to see the difference.</h2>
+          <p>Drag the handle or tap anywhere on the comparison to move between the before and after views.</p>
+          <a class="text-link" href="/html/detailing-page.html">Want results like this? Quote Now <span>→</span></a>
+        </div>
+
+        <div class="comparison" style="--position: 50%;">
+          <img class="comparison-image" src="/images/IMG_3325.jpeg" alt="Vehicle after detailing by Curbside Customs" loading="lazy">
+          <div class="comparison-before" aria-hidden="true">
+            <img class="comparison-image" src="/images/IMG_3322.jpeg" alt="">
+          </div>
+          <span class="comparison-label label-before">Before</span>
+          <span class="comparison-label label-after">After</span>
+          <input class="comparison-range" type="range" min="0" max="100" value="50" aria-label="Adjust before and after comparison">
+          <div class="comparison-divider" aria-hidden="true">
+            <span class="comparison-knob">↔</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="results">
       <div class="container">
         <div class="section-heading">
@@ -219,7 +243,7 @@
         <div class="cta-panel">
           <span class="kicker">Ready when you are</span>
           <h2>Let’s see what your car needs.</h2>
-          <p>Send us a few details about your vehicle and we’ll get back to you with a personalized quote.</p>
+          <p>Send us a few details and photos of your vehicle and we’ll get back to you with a personalized quote.</p>
           <a class="btn-primary" href="/html/detailing-page.html">Quote Now</a>
         </div>
       </div>
@@ -269,6 +293,13 @@
       navLinks.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  document.querySelectorAll('.comparison').forEach(comparison => {
+    const range = comparison.querySelector('.comparison-range');
+    const setPosition = value => comparison.style.setProperty('--position', `${value}%`);
+    setPosition(range.value);
+    range.addEventListener('input', () => setPosition(range.value));
   });
 </script>
 </body>
