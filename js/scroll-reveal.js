@@ -25,6 +25,37 @@
     googleReviewLink.href = 'https://share.google/aPkrRud2b8IiAiaex';
   }
 
+  /* Homepage-only quick scroll back to the top. */
+  if (document.querySelector('.hero') && !document.querySelector('.quote-hero')) {
+    const scrollTopButton = document.createElement('button');
+    scrollTopButton.type = 'button';
+    scrollTopButton.className = 'scroll-top-button';
+    scrollTopButton.setAttribute('aria-label', 'Back to top');
+    scrollTopButton.setAttribute('title', 'Back to top');
+    scrollTopButton.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 19V5"></path>
+        <path d="m6 11 6-6 6 6"></path>
+      </svg>
+    `;
+
+    document.body.appendChild(scrollTopButton);
+
+    const updateScrollTopButton = () => {
+      scrollTopButton.classList.toggle('is-visible', window.scrollY > 420);
+    };
+
+    scrollTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+      });
+    });
+
+    window.addEventListener('scroll', updateScrollTopButton, { passive: true });
+    updateScrollTopButton();
+  }
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const selectors = [
