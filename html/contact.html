@@ -1,129 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- Preload CSS -->
-    <link rel="preload" href="/css/styles.css" as="style">
-    <link rel="preload" href="/css/contact.css" as="style">
-
-    <meta name="description" content="Curbside Customs is a mobile car detailing service in BC. Get quality care right at your curb.">
-    <meta name="keywords" content="curbside customs, car detailing Burnaby, mobile detailing, car mods, car service BC">
-    <meta name="author" content="Curbside Customs">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curbside Customs</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/contact.css">
-    <link rel="icon" type="image/png" href="../images/black_logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Curbside Customs for mobile car detailing questions in Burnaby, BC and surrounding areas, or request a personalized detailing quote online.">
+  <meta name="keywords" content="Curbside Customs contact, mobile detailing Burnaby, car detailing Burnaby, detailing quote">
+  <meta name="author" content="Curbside Customs">
+  <title>Contact Curbside Customs | Mobile Detailing Burnaby</title>
+  <link rel="stylesheet" href="../css/home-modern.css">
+  <link rel="stylesheet" href="../css/contact.css">
+  <link rel="icon" type="image/png" href="../images/black_logo.png">
 </head>
 <body>
-    <header>
-        <h1>Contact Us</h1>
-        <span class="menu-toggle" id="hamburger-icon">&#9776;</span>
+<div class="site-shell">
 
-        <div id="home-icon">
-            <a href="../index.html">
-                <img src="../images/home.png" alt="Home Icon">
-            </a>
+  <header class="topbar contact-topbar">
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="Curbside Customs home">
+        <img src="../images/nob_logo.png" alt="Curbside Customs">
+      </a>
+
+      <button class="menu-button" id="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#results">Results</a>
+        <a href="../index.html#faq">FAQ</a>
+        <a href="about.html">About</a>
+        <a class="active" href="contact.html">Contact</a>
+        <a class="nav-cta" href="detailing-page.html">Quote Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="container contact-hero-grid">
+        <div>
+          <span class="eyebrow">Get in touch</span>
+          <h1>Questions first? <span>We’re easy to reach.</span></h1>
+          <p>Use the form for general questions, scheduling questions, or anything you want to ask before requesting a quote. If you already know what your vehicle needs, the quote form is the fastest way to send us the details.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="detailing-page.html">Quote Now</a>
+            <a class="btn-secondary" href="#contact-form">Send a Message</a>
+          </div>
         </div>
-        
 
-        <!-- Hamburger Menu Overlay -->
-<div id="hamburger-overlay">
-  <div id="hamburger-menu">
-    <a href="../index.html">Home</a>
-    <a href="../html/detailing-page.html">Detail</a>
-    <a href="../html/about.html">About</a>
-    <a href="../html/contact.html">Contact us</a>
-  </div>
+        <div class="contact-hero-photo">
+          <img src="../images/IMG_4017.jpeg" alt="Vehicle detailed by Curbside Customs">
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact-form">
+      <div class="container contact-layout">
+        <aside class="contact-info-card">
+          <span class="kicker">Contact</span>
+          <h2>Talk to us directly.</h2>
+          <p>Choose whatever is easiest. For a vehicle-specific price, use the quote form so we have enough information to give you an accurate answer.</p>
+
+          <div class="contact-methods">
+            <a class="contact-method" href="mailto:contact.curbside@gmail.com">
+              <span class="method-label">Email</span>
+              <strong>contact.curbside@gmail.com</strong>
+            </a>
+            <a class="contact-method" href="tel:+16045625372">
+              <span class="method-label">Phone</span>
+              <strong>(604) 562-5372</strong>
+            </a>
+            <a class="contact-method" href="https://www.instagram.com/curbsidecustomsgarage/" target="_blank" rel="noopener">
+              <span class="method-label">Instagram</span>
+              <strong>@curbsidecustomsgarage</strong>
+            </a>
+          </div>
+
+          <div class="quote-callout">
+            <span class="kicker">Need a price?</span>
+            <h3>Send us the vehicle details.</h3>
+            <p>Year, make, model, condition and what you want done gives us what we need to review the job properly.</p>
+            <a class="text-link" href="detailing-page.html">Request a quote <span>→</span></a>
+          </div>
+        </aside>
+
+        <div class="contact-form-card">
+          <div class="form-heading">
+            <span class="kicker">General message</span>
+            <h2>How can we help?</h2>
+            <p>Send us a message and we’ll get back to you as soon as we can.</p>
+          </div>
+
+          <form action="https://formsubmit.co/contact.curbside@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Curbside Customs Contact Message">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://www.curbsidedetailing.ca/html/thank-you.html">
+            <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
+
+            <div class="contact-form-grid">
+              <div class="field">
+                <label for="name">Full name <span class="required">*</span></label>
+                <input id="name" name="Name" type="text" autocomplete="name" placeholder="Your name" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Email <span class="required">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input id="phone" name="Phone" type="tel" autocomplete="tel" placeholder="604-555-0123">
+              </div>
+
+              <div class="field">
+                <label for="topic">What is this about? <span class="required">*</span></label>
+                <select id="topic" name="Topic" required>
+                  <option value="" selected disabled>Select a topic</option>
+                  <option>General question</option>
+                  <option>Scheduling / availability</option>
+                  <option>Existing quote request</option>
+                  <option>Service area question</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea id="message" name="Message" rows="7" placeholder="Tell us what you’d like to know." required></textarea>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn-primary" type="submit">Send Message</button>
+              <span>For pricing, use Quote Now so we can review your vehicle.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="../images/nob_logo.png" alt="Curbside Customs">
+          <p>Mobile automotive detailing in Burnaby, BC and surrounding areas.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="detailing-page.html">Get a Quote</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-links">
+            <a href="mailto:contact.curbside@gmail.com">contact.curbside@gmail.com</a>
+            <a href="tel:+16045625372">(604) 562-5372</a>
+            <a href="https://www.instagram.com/curbsidecustomsgarage/" target="_blank" rel="noopener">Instagram @curbsidecustomsgarage</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Curbside Customs. All rights reserved.</div>
+    </div>
+  </footer>
 </div>
 
-    </header>
+<script>
+  const menuButton = document.getElementById('menu-button');
+  const navLinks = document.getElementById('nav-links');
 
-    
-
-    
-    
-    <div class="content">
-        <div class="card contact-form">
-            <h2>Get in Touch</h2>
-            <p>Have questions or want to schedule a service? Fill out the form below and we'll get back to you ASAP.</p>
-            <form action="https://formsubmit.co/contact.curbside@gmail.com" method="post">
-                <!-- Redirect after submission -->
-                <input type="hidden" name="thank-you.html" value="https://yourdomain.com/thank-you.html">
-
-                <!-- Disable CAPTCHA -->
-                <input type="hidden" name="_captcha" value="false">
-
-
-                <label for="name">Name:<span class="red-letter">*</span></label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:<span class="red-letter">*</span></label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="phone">Phone (Optional):</label>
-                <input type="tel" id="phone" name="phone">
-                
-                <label for="message">Message:<span class="red-letter">*</span></label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="additional">
-        <p class="cp">Or feel free to contact us directly: <br>
-        Email: contact.curbside@gmail.com <br>
-        Phone: (604) 562-5372</p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../html/about.html">About</a></li>
-                    <li><a href="../html/contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4>Follow Us</h4>
-                <a href="https://www.instagram.com/curbsidecustomsgarage/?hl=en" class="social-icon" target="_blank"><img src="../images/instagram.png" alt="Instagram"></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 CurbsideCustoms. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-  const menuToggle = document.getElementById('hamburger-icon');
-  const hamburgerOverlay = document.getElementById('hamburger-overlay');
-  const hamburgerMenu = document.getElementById('hamburger-menu');
-
-  // Open the menu
-  menuToggle.addEventListener('click', () => {
-    hamburgerOverlay.classList.add('open');
-    hamburgerMenu.classList.add('open');
-    document.body.classList.add('menu-open');
+  menuButton.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
   });
 
-  // Close the menu if clicking outside of it
-  hamburgerOverlay.addEventListener('click', (e) => {
-    if (!hamburgerMenu.contains(e.target)) {
-      hamburgerOverlay.classList.remove('open');
-      hamburgerMenu.classList.remove('open');
-      document.body.classList.remove('menu-open');
-    }
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    });
   });
 </script>
-
-
-
 </body>
 </html>
