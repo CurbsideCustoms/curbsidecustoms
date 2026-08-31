@@ -1,0 +1,39 @@
+name: Update See Our Work link
+
+on:
+  push:
+    paths:
+      - '.link-fix-trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  update-link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Point See Our Work to gallery
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('index.html')
+          text = path.read_text()
+          old = '<a class="btn-secondary" href="#results">See Our Work</a>'
+          new = '<a class="btn-secondary" href="/html/results.html">See Our Work</a>'
+          if old not in text:
+              raise SystemExit('Expected See Our Work link was not found')
+          path.write_text(text.replace(old, new, 1))
+          PY
+
+          rm -f .link-fix-trigger
+          rm -f .github/workflows/update-see-our-work.yml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Link See Our Work directly to results gallery"
+          git push
