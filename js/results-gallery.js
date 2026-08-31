@@ -12,25 +12,13 @@
   const mediaItems = [
     { type: 'video', src: '/images/reel.mov', title: 'Featured detailing reel', meta: 'Curbside Detailing reel' },
     { type: 'video', src: '/images/gtiinside.mov', title: 'GTI interior result', meta: 'Interior detailing' },
-    { type: 'video', src: '/images/truckoutside.mov', title: 'Truck exterior result', meta: 'Exterior detailing' },
-    { type: 'video', src: '/images/truckinsidedirty.mov', title: 'Truck interior — before', meta: 'Before interior detailing' },
-    { type: 'video', src: '/images/truckinside.mov', title: 'Truck interior — after', meta: 'After interior detailing' },
-    { type: 'image', src: '/images/IMG_4039.jpeg', title: 'Volkswagen GTI finish', meta: 'Recent detailing result' },
-    { type: 'image', src: '/images/IMG_3324.jpeg', title: 'Honda Civic detail', meta: 'Interior and exterior finish' },
-    { type: 'image', src: '/images/IMG_4018.jpeg', title: 'Fresh exterior finish', meta: 'Recent work' },
-    { type: 'image', src: '/images/IMG_3325.jpeg', title: 'Clean exterior result', meta: 'Recent work' },
-    { type: 'image', src: '/images/E84AAE16-5E92-4804-B75D-E8DF3A781392.jpeg', title: 'Detailed vehicle finish', meta: 'Recent work' },
-    { type: 'image', src: '/images/IMG_4010.jpeg', title: 'Detailing result 01', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4012.jpeg', title: 'Detailing result 02', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4014.jpeg', title: 'Detailing result 03', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4017.jpeg', title: 'Detailing result 04', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4023.jpeg', title: 'Detailing result 05', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4025.jpeg', title: 'Detailing result 06', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4032.jpeg', title: 'Detailing result 07', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4033.jpeg', title: 'Detailing result 08', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4037.jpeg', title: 'Detailing result 09', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4042.jpeg', title: 'Detailing result 10', meta: 'Curbside Detailing' },
-    { type: 'image', src: '/images/IMG_4049.jpeg', title: 'Detailing result 11', meta: 'Curbside Detailing' }
+    { type: 'video', src: '/images/truckoutside.mov', title: 'Ram 3500 Exterior Result', meta: 'Exterior detailing' },
+    { type: 'video', src: '/images/truckinside.mov', title: 'Ram 3500 Interior Result', meta: 'After interior detailing' },
+    { type: 'image', src: '/images/IMG_4039.jpeg', title: 'Civic Si finish', meta: 'Recent detailing result' },
+    { type: 'image', src: '/images/IMG_4025.jpeg', title: 'Si Body', meta: 'Curbside Detailing' },
+    { type: 'image', src: '/images/IMG_4033.jpeg', title: 'Si - Close up 1', meta: 'Curbside Detailing' },
+    { type: 'image', src: '/images/IMG_4037.jpeg', title: 'Si - Close up 2', meta: 'Curbside Detailing' },
+    { type: 'image', src: '/images/IMG_4049.jpeg', title: 'Si - Close up 3', meta: 'Curbside Detailing' }
   ];
 
   let activeIndex = 0;
