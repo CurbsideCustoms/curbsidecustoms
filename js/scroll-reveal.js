@@ -25,6 +25,67 @@
     googleReviewLink.href = 'https://share.google/aPkrRud2b8IiAiaex';
   }
 
+  /* Homepage results preview: keep the landing page concise and send visitors to the full gallery. */
+  const resultsSection = document.querySelector('#results');
+  const resultsGrid = resultsSection?.querySelector('.results-grid');
+  if (resultsGrid) {
+    const resultCards = [...resultsGrid.querySelectorAll('.result-photo')];
+    resultCards.slice(2).forEach((card) => {
+      card.hidden = true;
+    });
+
+    resultsGrid.classList.add('results-preview-grid');
+
+    if (!document.getElementById('results-preview-styles')) {
+      const previewStyles = document.createElement('style');
+      previewStyles.id = 'results-preview-styles';
+      previewStyles.textContent = `
+        .results-grid.results-preview-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-rows: 360px;
+          gap: 16px;
+        }
+        .results-grid.results-preview-grid .result-photo {
+          grid-column: auto !important;
+          grid-row: auto !important;
+          min-width: 0;
+        }
+        .results-grid.results-preview-grid .result-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .results-more-wrap {
+          display: flex;
+          justify-content: center;
+          margin-top: 28px;
+        }
+        .results-more-wrap .btn-secondary {
+          min-width: 210px;
+          background: #11151a;
+          border-color: rgba(99, 212, 255, .28);
+        }
+        @media (max-width: 620px) {
+          .results-grid.results-preview-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 270px);
+          }
+          .results-more-wrap .btn-secondary {
+            width: 100%;
+          }
+        }
+      `;
+      document.head.appendChild(previewStyles);
+    }
+
+    if (!resultsSection.querySelector('.results-more-wrap')) {
+      const moreWrap = document.createElement('div');
+      moreWrap.className = 'results-more-wrap';
+      moreWrap.innerHTML = '<a class="btn-secondary" href="/html/results.html">View More Results <span aria-hidden="true">→</span></a>';
+      resultsGrid.insertAdjacentElement('afterend', moreWrap);
+    }
+  }
+
   /* Homepage-only quick scroll back to the top. */
   if (document.querySelector('.hero') && !document.querySelector('.quote-hero')) {
     const scrollTopButton = document.createElement('button');
