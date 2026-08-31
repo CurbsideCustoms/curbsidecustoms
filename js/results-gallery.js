@@ -9,11 +9,12 @@
 
   if (!mainFrame || !galleryGrid) return;
 
-  /*
-    Video-ready format for future clips:
-    { type: 'video', src: '/videos/featured-detail.mp4', poster: '/images/IMG_4039.jpeg', title: 'Featured transformation', meta: 'Exterior detail' }
-  */
   const mediaItems = [
+    { type: 'video', src: '/images/reel.mov', title: 'Featured detailing reel', meta: 'Curbside Detailing reel' },
+    { type: 'video', src: '/images/gtiinside.mov', title: 'GTI interior result', meta: 'Interior detailing' },
+    { type: 'video', src: '/images/truckoutside.mov', title: 'Truck exterior result', meta: 'Exterior detailing' },
+    { type: 'video', src: '/images/truckinsidedirty.mov', title: 'Truck interior — before', meta: 'Before interior detailing' },
+    { type: 'video', src: '/images/truckinside.mov', title: 'Truck interior — after', meta: 'After interior detailing' },
     { type: 'image', src: '/images/IMG_4039.jpeg', title: 'Volkswagen GTI finish', meta: 'Recent detailing result' },
     { type: 'image', src: '/images/IMG_3324.jpeg', title: 'Honda Civic detail', meta: 'Interior and exterior finish' },
     { type: 'image', src: '/images/IMG_4018.jpeg', title: 'Fresh exterior finish', meta: 'Recent work' },
@@ -45,7 +46,6 @@
     if (item.type === 'video') {
       const video = document.createElement('video');
       video.src = item.src;
-      if (item.poster) video.poster = item.poster;
       video.controls = true;
       video.playsInline = true;
       video.muted = true;
@@ -74,6 +74,31 @@
     });
   };
 
+  const createThumbnailPreview = (item) => {
+    if (item.type === 'video') {
+      const preview = document.createElement('video');
+      preview.src = item.src;
+      preview.muted = true;
+      preview.playsInline = true;
+      preview.preload = 'metadata';
+      preview.tabIndex = -1;
+      preview.setAttribute('aria-hidden', 'true');
+      preview.addEventListener('loadedmetadata', () => {
+        if (Number.isFinite(preview.duration) && preview.duration > 0.15) {
+          preview.currentTime = 0.1;
+        }
+      }, { once: true });
+      return preview;
+    }
+
+    const preview = document.createElement('img');
+    preview.src = item.src;
+    preview.alt = '';
+    preview.loading = 'lazy';
+    preview.decoding = 'async';
+    return preview;
+  };
+
   const renderGallery = () => {
     galleryGrid.replaceChildren();
 
@@ -91,11 +116,7 @@
       button.setAttribute('aria-label', `Show ${item.title}`);
       button.setAttribute('aria-pressed', String(index === activeIndex));
 
-      const preview = document.createElement('img');
-      preview.src = item.type === 'video' && item.poster ? item.poster : item.src;
-      preview.alt = '';
-      preview.loading = 'lazy';
-      preview.decoding = 'async';
+      const preview = createThumbnailPreview(item);
 
       const label = document.createElement('span');
       label.className = 'gallery-thumb-label';
