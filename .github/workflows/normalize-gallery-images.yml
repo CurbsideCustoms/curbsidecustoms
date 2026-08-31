@@ -9,25 +9,43 @@ permissions:
   contents: write
 
 jobs:
-  rebuild-images:
+  normalize-images:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Rebuild normalized JPEGs
+      - name: Install ImageMagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+      - name: Convert problem JPEGs to standard SDR sRGB
         shell: bash
         run: |
-          if [ ! -f .image-fix/READY ]; then
-            echo "No image rebuild requested."
-            exit 0
-          fi
+          set -euo pipefail
 
-          cat .image-fix/3324/real-* | tr -d '\n\r' | base64 --decode > images/IMG_3324.jpeg
-          cat .image-fix/3325/real-* | tr -d '\n\r' | base64 --decode > images/IMG_3325.jpeg
+          convert images/IMG_3324.jpeg \
+            -colorspace sRGB \
+            -strip \
+            -sampling-factor 4:2:0 \
+            -interlace Plane \
+            -quality 88 \
+            images/IMG_3324.normalized.jpeg
 
-          file images/IMG_3324.jpeg
-          file images/IMG_3325.jpeg
+          convert images/IMG_3325.jpeg \
+            -colorspace sRGB \
+            -strip \
+            -sampling-factor 4:2:0 \
+            -interlace Plane \
+            -quality 88 \
+            images/IMG_3325.normalized.jpeg
+
+          mv images/IMG_3324.normalized.jpeg images/IMG_3324.jpeg
+          mv images/IMG_3325.normalized.jpeg images/IMG_3325.jpeg
+
+          identify -verbose images/IMG_3324.jpeg | grep -E 'Colorspace|Geometry|Quality' | head
+          identify -verbose images/IMG_3325.jpeg | grep -E 'Colorspace|Geometry|Quality' | head
 
           rm -rf .image-fix
           rm -f .github/workflows/normalize-gallery-images.yml
@@ -36,4 +54,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Normalize gallery images for consistent color"
-          git push
+          git push origin HEAD:${GITHUB_REF_NAME}
