@@ -1,0 +1,113 @@
+.transformation-section {
+  padding: 88px 0 96px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0,174,239,.08), transparent 26%),
+    #0d1115;
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.transformation-heading {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.transformation-heading h2 {
+  margin-bottom: 12px;
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.comparison-video-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+  background: linear-gradient(180deg, #141a20, #0e1216);
+  box-shadow: 0 20px 55px rgba(0,0,0,.28);
+}
+
+.comparison-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 520px;
+  padding: 14px;
+  background: #050709;
+}
+
+.comparison-media video {
+  display: block;
+  width: min(100%, 390px);
+  max-height: 650px;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #030405;
+}
+
+.comparison-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.comparison-label.before {
+  color: #e7ebef;
+  background: rgba(8,10,12,.82);
+}
+
+.comparison-label.after {
+  color: #8de0ff;
+  background: rgba(0,174,239,.14);
+  border-color: rgba(99,212,255,.30);
+}
+
+.comparison-copy {
+  padding: 20px 22px 24px;
+}
+
+.comparison-copy h3 {
+  margin: 0 0 7px;
+  font-size: 1.22rem;
+  letter-spacing: -.02em;
+}
+
+.comparison-copy p {
+  margin: 0;
+  color: #9fa9b4;
+}
+
+@media (max-width: 760px) {
+  .transformation-section {
+    padding: 68px 0 76px;
+  }
+
+  .before-after-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-media {
+    min-height: 0;
+  }
+
+  .comparison-media video {
+    width: min(100%, 340px);
+  }
+}
