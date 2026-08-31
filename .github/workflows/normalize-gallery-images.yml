@@ -1,0 +1,39 @@
+name: Normalize gallery images
+
+on:
+  push:
+    paths:
+      - '.image-fix/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Rebuild normalized JPEGs
+        shell: bash
+        run: |
+          if [ ! -f .image-fix/READY ]; then
+            echo "No image rebuild requested."
+            exit 0
+          fi
+
+          cat .image-fix/3324/part-* | tr -d '\n\r' | base64 --decode > images/IMG_3324.jpeg
+          cat .image-fix/3325/part-* | tr -d '\n\r' | base64 --decode > images/IMG_3325.jpeg
+
+          file images/IMG_3324.jpeg
+          file images/IMG_3325.jpeg
+
+          rm -rf .image-fix
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/IMG_3324.jpeg images/IMG_3325.jpeg
+          git add -A .image-fix
+          git commit -m "Normalize gallery images for consistent color"
+          git push
