@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/css/home-modern.css">
   <link rel="stylesheet" href="/css/mobile-actions.css?v=3">
   <link rel="stylesheet" href="/css/results-gallery.css?v=1">
+  <link rel="stylesheet" href="/css/results-before-after.css?v=1">
   <link rel="icon" type="image/png" href="/images/Curbside Detailing Logo.png">
 </head>
 <body class="gallery-page">
@@ -65,10 +66,10 @@
             </div>
             <div class="feature-info">
               <div>
-                <h2 id="gallery-main-title">Recent detailing result</h2>
-                <p id="gallery-main-meta">Curbside Detailing</p>
+                <h2 id="gallery-main-title">Featured detailing reel</h2>
+                <p id="gallery-main-meta">Curbside Detailing reel</p>
               </div>
-              <span class="feature-count" id="gallery-main-count">1 / 16</span>
+              <span class="feature-count" id="gallery-main-count">1 / 21</span>
             </div>
           </article>
         </div>
@@ -88,6 +89,40 @@
 
           <div class="gallery-grid" id="gallery-grid"></div>
           <div class="gallery-empty" id="gallery-empty">No media in this category yet.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="transformation-section" aria-labelledby="truck-transformation-title">
+      <div class="container">
+        <div class="section-heading transformation-heading">
+          <span class="kicker">Before &amp; After</span>
+          <h2 id="truck-transformation-title">Truck interior transformation.</h2>
+          <p>See the interior before the detail, then compare it with the finished result.</p>
+        </div>
+
+        <div class="before-after-grid">
+          <article class="comparison-video-card">
+            <div class="comparison-media">
+              <video src="/images/truckinsidedirty.mov" controls autoplay muted loop playsinline preload="metadata" aria-label="Truck interior before detailing"></video>
+              <span class="comparison-label before">Before</span>
+            </div>
+            <div class="comparison-copy">
+              <h3>Before</h3>
+              <p>The truck interior before the cleaning and detailing work.</p>
+            </div>
+          </article>
+
+          <article class="comparison-video-card">
+            <div class="comparison-media">
+              <video src="/images/truckinside.mov" controls autoplay muted loop playsinline preload="metadata" aria-label="Truck interior after detailing"></video>
+              <span class="comparison-label after">After</span>
+            </div>
+            <div class="comparison-copy">
+              <h3>After</h3>
+              <p>The finished interior after the detail.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -156,6 +191,6 @@
     });
   });
 </script>
-<script src="/js/results-gallery.js?v=1" defer></script>
+<script src="/js/results-gallery.js?v=2" defer></script>
 </body>
 </html>
